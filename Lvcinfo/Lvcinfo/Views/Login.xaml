@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:Lvcinfo.ViewModels"
+             x:Class="Lvcinfo.MainPage"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="#006400" Padding="24" CornerRadius="0">
+            <Label Text="Bem vindo!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+           
+        </Frame>
+        <StackLayout Padding="10,150,10,0" VerticalOptions="Center" >
+            <Entry Keyboard="Numeric" Placeholder="Matricula ou CRM" Text="{Binding UserName}" />
+            <Entry Keyboard="Numeric" Placeholder="Senha" IsPassword ="True" Text="{Binding Password}" />
+            <!--<Button Text="Registrar" HorizontalOptions="Center" BackgroundColor="DarkSlateGray"
+                        TextColor="White" WidthRequest="300" HeightRequest="40"
+                        Visual="Material"
+                        Command="{Binding RegisterCommand}"
+                        />-->
+
+
+        </StackLayout>
+        <StackLayout Padding="10,150,10,0" VerticalOptions="Center" >
+            <Button VerticalOptions="Center" Text="Entrar" Command="{Binding LoginCommand}"/>
+            
+            
+            <Button VerticalOptions="Center" Text="Fale Conosco"/>
+
+
+
+
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

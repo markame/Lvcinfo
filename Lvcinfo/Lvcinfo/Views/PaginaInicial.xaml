@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lvcinfo.Views.PaginaInicial"
+              xmlns:vm="clr-namespace:Lvcinfo.ViewModels"
+             Title="Pagina Inicial">
+
+    <ContentPage.BindingContext>
+        <vm:PaginaInicialModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#006400" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                            <Image Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="64" />
+                        </ContentView>
+                    </StackLayout>
+                </StackLayout>
+                
+                
+                <ScrollView Grid.Row="1">
+                    <StackLayout Orientation="Vertical" Padding="30,20,30,24" Spacing="10">
+                        <Label FontSize="16" Padding="0,0,0,0">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu smartphone para futuras checagens."/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+                        <Grid Margin="20,35,25,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+                            <Button Text="Notificações Em andamento" />
+                            <Button Grid.Column="1"
+                                  Text="Notificações Em encerradas" />
+                            <Button Grid.Row="1"
+                                  Text="Notificações Finalizadas " />
+                            <Button Text="Ajuda" Grid.Column="1"
+                                  Grid.Row="1"/>
+                        </Grid>
+
+                        <StackLayout>
+
+                            <Button Command="{Binding novaNotificacaoCommand}" Margin="0,150,0,0" Text="Nova Notificação"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"  />
+
+                        </StackLayout>
+
+
+
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
