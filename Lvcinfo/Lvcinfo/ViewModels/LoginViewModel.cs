@@ -66,7 +66,7 @@ namespace Lvcinfo.ViewModels
                     Preferences.Set("UserName", UserName);
 
 
-                     await Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());
+                     Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());
                 }
                 else
                 {

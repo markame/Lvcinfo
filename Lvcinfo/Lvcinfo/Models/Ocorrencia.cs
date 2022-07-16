@@ -33,7 +33,7 @@ namespace Lvcinfo.Models
         public int Procedencia_Animal { get; set; }
         public int Abrigo_Animal { get; set; }
         public int Outro_Animal { get; set; }
-        public DateTime Data_Sintoma { get; set; }
+        public string Data_Sintoma { get; set; }
         public bool Emagrecimento_Sintoma { get; set; }
         public bool Alopecia_Sintoma { get; set; }
         public bool Hepatomegalia_Sintoma { get; set; }
@@ -47,5 +47,17 @@ namespace Lvcinfo.Models
         public bool Diarreia_Sintoma { get; set; }
         public bool Sanguenasal_Sintoma { get; set; }
         public int Id_Usuario { get; set; }
+        public string Qual_Sintoma { get; set; }
+        public string Data_Amostra { get; set; }
+        public int Tipo_Amosta { get; set; }
+        public string Qual_Amostra {get; set; }
+        public int Exame_Rapido { get; set; }
+        public int Exame_Elisa { get; set; }
+        public int Exame_Parasitologico { get; set; }
+        public int Conclusao_Caso { get; set; }
+
+        public int Evolucao_Caso { get; set; }
+        
+
     }
 }
