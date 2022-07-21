@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lvcinfo.Views.NovaOcorrencia"
+             x:Class="Lvcinfo.Views.NovaRegistro"
              Title="Nova Investigação"
               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
@@ -295,18 +295,17 @@
                                 <Label FontSize="Body" Text="Sangue:" VerticalOptions="Center"/>
                                 <RadioButton x:Name="sangue"/>
                            
-                            
+                            <!-- 1 para sangue 2 para soro -->
                                 <Label FontSize="Body" Text="Soro:" VerticalOptions="Center"/>
                                 <RadioButton x:Name="soro"/>
                             
                             
                                 <Label FontSize="Body" Text="Outro:" VerticalOptions="Center"/>
-                                <RadioButton/>
+                                <RadioButton CheckedChanged="QualAmostraChecked"/>
                             
                             </StackLayout>
                             <StackLayout>
-                                <Label FontSize="Body" Text="Qual:"/>
-                                <Entry x:Name="qual"/>
+                                <Entry IsEnabled="False" Placeholder="Qual" x:Name="qual_amostra"/>
                             </StackLayout>
                             <Label Text="Exames realizados:" FontSize="Body"/>
                             <Label Text="Teste Rapido DPP:" FontSize="Body"/>
@@ -349,9 +348,9 @@
                         <Label Text="Classificação final:" FontSize="Body"/>
                         <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding resultado}">
                                 <Label FontSize="Body"    Text="Confirmado" />
-                                <RadioButton CheckedChanged="ConfirmadoCheck"/>
+                                <RadioButton x:Name="confirmado" CheckedChanged="ConfirmadoCheck"/>
                             <Label FontSize="Body" Text="Descartado" />
-                            <RadioButton x:Name="conclusao"/>
+                            <RadioButton x:Name="descartado"/>
                          
                         </StackLayout>
                             <StackLayout RadioButtonGroup.GroupName="{Binding evo}">
@@ -363,14 +362,17 @@
                                 <Label x:Name="label_Eu" Text="Eutanasiado" IsEnabled="false"/>
                                 <RadioButton x:Name="rb_Eutanasiado" IsEnabled="false"/>
                                 <Label x:Name="label_Data" Text="Data da Eutanásia" IsEnabled="false"/>
-                                <Picker x:Name="pic_Data" IsEnabled="false"/>
+                                <DatePicker x:Name="pic_Data" IsEnabled="false"/>
                             </StackLayout>
                         </StackLayout>
                     </Frame>
 
                     <!-- fim dos boxes de entrada de dados -->
                 </StackLayout>
-            
+                <StackLayout Orientation="Horizontal" Padding="15">
+                  <Button Text="Salvar" Clicked="Salvar_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+
 
             </StackLayout>
         </ScrollView>

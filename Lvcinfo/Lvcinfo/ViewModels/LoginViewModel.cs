@@ -63,7 +63,7 @@ namespace Lvcinfo.ViewModels
                 Result = await userService.LoginUser(UserName,Password);
                 if (Result)
                 {
-                    Preferences.Set("UserName", UserName);
+                   Preferences.Set("UserName", UserName);
 
 
                      Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());

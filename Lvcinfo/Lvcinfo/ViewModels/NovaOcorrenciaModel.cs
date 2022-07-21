@@ -6,10 +6,10 @@ using Xamarin.Forms;
 
 namespace Lvcinfo.ViewModels
 {
-    public class NovaOcorrenciaModel: BaseViewModel
+    public class NovaRegistroModel: BaseViewModel
     {
 
-        public NovaOcorrenciaModel()
+        public NovaRegistroModel()
         {
             
         }

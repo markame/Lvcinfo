@@ -6,22 +6,42 @@ using Xamarin.Forms.Xaml;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Lvcinfo.Models;
-
-
+using LVCinfo.Services;
+using Lvcinfo.Model;
 
 namespace Lvcinfo.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NovaOcorrencia : ContentPage
+    public partial class NovaRegistro : ContentPage
     {
-        Ocorrencia ocorrencia = new Ocorrencia();
+        Registro Registro = new Registro();
+        User user = new User();
         private byte[] Base64Stream;
         private string fotoanimal;
         private int PROCEDENCIA;
         private int ABRIGO;
         private int OUTRO;
-        //FirebaseService fbService = new FirebaseService();
-        public NovaOcorrencia()
+        private bool emagrecimento;
+        private bool alopecia;
+        private bool hepato;
+        private bool apatia;
+        private bool lesao;
+        private bool onico;
+        private bool apetite;
+        private bool ocular;
+        private bool linfo;
+        private bool vomito;
+        private bool diarreia;
+        private bool sanguenasal;
+        private int amostra;
+        private int erapido;
+        private int eelisa;
+        private int eparasita;
+        private string conlusaocaso;
+        private string evo;
+
+        FirebaseService fbService = new FirebaseService();
+        public NovaRegistro()
         {
             InitializeComponent();
         }
@@ -31,20 +51,9 @@ namespace Lvcinfo.Views
             var cameraMediaOptions = new StoreCameraMediaOptions
             {
                 DefaultCamera = CameraDevice.Rear,
-
-                // Set the value to true if you want to save the photo to your public storage.
                 SaveToAlbum = true,
-
-                // Give the name of the folder you want to save to
-                Directory = "MyAppName",
-
-                // Give a photo name of your choice,
-                // or set it to null if you want to use the default naming convention
+                Directory = "LvcInfo",
                 Name = null,
-
-                // Set the compression quality
-                // 0 = Maximum compression but worse quality
-                // 100 = Minimum compression but best quality
                 CompressionQuality = 100
             };
             MediaFile photo = await CrossMedia.Current.TakePhotoAsync(cameraMediaOptions);
@@ -57,76 +66,29 @@ namespace Lvcinfo.Views
         private async void Salvar_Clicked(object sender, EventArgs e)
         {
 
-            /* item.Data_Notificacao = data_Notificacao.Date.ToShortDateString();
-             item.UF = uf.SelectedItem.ToString();
-             item.Muni_Notificacao = muni_Notificacao.Text;
-             item.Fonte_Notificacao = fonte_Notificacao.Text;
-             item.Nome_Proprietario = nome_Proprietario.Text;
-             item.Logradouro_Proprietario = logradouro_Proprietario.Text;
-             item.Numero_Proprietario = int.Parse(numero_Proprietario.Text);
-             item.Bairro_Proprietario = bairro_Proprietario.Text;
-             item.Cep_Proprietario = cep_Proprietario.Text;
-             item.Complemento_Proprietario = complemento_Proprietario.Text;
-             item.Municipio_Proprietario = municipio_Proprietario.Text;
-             item.Zona_Proprietario = zona_Proprietario.Text;
-             item.Telefone_Proprietario = telefone_Proprietario.Text;
-             item.Email_Proprietario = email_Proprietario.Text;
-             item.Cpf_Proprietario = cpf_Proprietario.Text;
-             item.Nascimento_Proprietario = nascimento_Proprietario.Text;
-             item.Nome_Animal = nome_Animal.Text;   
-             item.Idade_Animal = idade_Animal.Text;
-             item.Raca_Animal = raca_Animal.Text;
-             item.Porte_Animal  =   raca_Animal.Text;
-             item.Pelagem_Animal = pelagem_Animal.Text;*/
+            CheckAndRadios();
 
-            if (urbana.IsChecked)
-            {
-                PROCEDENCIA = 1;
-            }
-            if (periurbana.IsChecked)
-            {
-                PROCEDENCIA = 2;
-            }
-            if (rural.IsChecked)
-            {
-                PROCEDENCIA = 3;
-            }
-
-            if (domiciliado.IsChecked)
-            {
-                ABRIGO = 1;
-            }
-            if (semi.IsChecked)
-            {
-                ABRIGO = 2;
-            }
-            if (errante.IsChecked)
-            {
-                ABRIGO = 3;
-            }
-
-            if (nao.IsChecked)
-            {
-                OUTRO = 0;
-            }
-            if (sim.IsChecked)
+            try
             {
 
+                await fbService.addRegistro(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text
+                     , fonte_Notificacao.Text, nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text),
+                     bairro_Proprietario.Text, cep_Proprietario.Text, complemento_Proprietario.Text, municipio_Proprietario.Text, zona_Proprietario.Text,
+                     telefone_Proprietario.Text, email_Proprietario.Text, cpf_Proprietario.Text, nascimento_Proprietario.Text, nome_Animal.Text, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text,
+                     pelagem_Animal.Text, fotoanimal, PROCEDENCIA, ABRIGO, OUTRO, data_Sintomas.Date.ToLongDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
+                     apetite, ocular, linfo, vomito, diarreia, sanguenasal, user.UserName, qual_sintoma.Text, data_Amostra.Date.ToShortDateString(), amostra, qual_amostra.Text, erapido, eelisa, eparasita, conlusaocaso, evo, pic_Data.Date.ToShortDateString());
 
-                OUTRO = 1;
+                await DisplayAlert("Success", "Investigação incluída com sucesso", "OK");
             }
-           /* await fbService.addRegistro(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text
-                , fonte_Notificacao.Text, nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text),
-                bairro_Proprietario.Text, cep_Proprietario.Text, complemento_Proprietario.Text, municipio_Proprietario.Text, zona_Proprietario.Text,
-                telefone_Proprietario.Text, email_Proprietario.Text, cpf_Proprietario.Text, nascimento_Proprietario.Text, nome_Animal.Text, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text,
-                pelagem_Animal.Text, fotoanimal, PROCEDENCIA, ABRIGO, OUTRO);*/
-
-            await DisplayAlert("Success", "Ocorrencia incluído com sucesso", "OK");
+            catch(Exception ex)
+            {
+                await DisplayAlert("Erro","Ocorreu um erro com o cadastro da investigação. Certifiquei-se que campos importantes não estão em branco "+ex.ToString(), "OK");
+            }
 
 
 
 
-
+            
 
 
 
@@ -170,6 +132,213 @@ namespace Lvcinfo.Views
 
         private void outro_sintoma_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            quais_animais.IsEnabled = true;
+        }
+
+        private void QualAmostraChecked(object sender, CheckedChangedEventArgs e)
+        {
+            qual_amostra.IsEnabled = true;
+        }
+        public void CheckAndRadios()
+        {
+            if (urbana.IsChecked)
+            {
+                PROCEDENCIA = 1;
+            }
+            if (periurbana.IsChecked)
+            {
+                PROCEDENCIA = 2;
+            }
+            if (rural.IsChecked)
+            {
+                PROCEDENCIA = 3;
+            }
+
+            if (domiciliado.IsChecked)
+            {
+                ABRIGO = 1;
+            }
+            if (semi.IsChecked)
+            {
+                ABRIGO = 2;
+            }
+            if (errante.IsChecked)
+            {
+                ABRIGO = 3;
+            }
+
+            if (nao.IsChecked)
+            {
+                OUTRO = 0;
+            }
+            if (sim.IsChecked)
+            {
+                OUTRO = 1;
+            }
+
+            if (emagrecimento_Animal.IsChecked)
+            {
+                emagrecimento = true;
+            }
+            else
+            {
+                emagrecimento = false;
+            }
+            if (alopecia_Animal.IsChecked)
+            {
+                alopecia = true;
+            }
+            else
+            {
+                alopecia = false;
+            }
+            if (hepatomegalia_Animal.IsChecked)
+            {
+                hepato = true;
+            }
+            else
+            {
+                hepato = false;
+            }
+            if (apatia_Animal.IsChecked)
+            {
+                apatia = true;
+            }
+            else
+            {
+                apatia = false;
+            }
+            if (lesoes_Animal.IsChecked)
+            {
+                lesao = true;
+            }
+            else
+            {
+                lesao = false;
+            }
+            if (onicogrifose_Animal.IsChecked)
+            {
+                onico = true;
+            }
+            else
+            {
+                onico = false;
+            }
+            if (apetite_Animal.IsChecked)
+            {
+                apetite = true;
+            }
+            else
+            {
+                apetite = false;
+            }
+            if (alteraoculares_Animal.IsChecked)
+            {
+                ocular = true;
+            }
+            else
+            {
+                ocular = false;
+            }
+            if (linfomegalia_Animal.IsChecked)
+            {
+                linfo =  true;
+            }
+            else
+            {
+                linfo = false;
+            }
+            if (vomito_Animal.IsChecked)
+            {
+                vomito = true;
+            }
+            else
+            {
+                vomito = false;
+            }
+            if (diarreia_Animal.IsChecked)
+            {
+                diarreia = true;
+            }
+            else
+            {
+                diarreia = false;
+            }
+            if (sanguenasal_Animal.IsChecked)
+            {
+                sanguenasal = true;
+
+            }
+            else
+            {
+                sanguenasal = false;
+            }
+
+
+            if (sangue.IsChecked)
+            {
+                amostra = 1;
+            }
+            if (soro.IsChecked)
+            {
+                amostra = 2;
+            }
+            if (reagenteR.IsChecked)
+            {
+                erapido = 1;
+            }
+            if (nreagenteR.IsChecked)
+            {
+                erapido = 2;
+            }
+            if (nrealizadoR.IsChecked)
+            {
+                erapido = 3;
+            }
+            if (reagenteE.IsChecked)
+            {
+                eelisa = 1;
+            }
+            if (nrealizadoE.IsChecked)
+            {
+                eelisa = 2;
+            }
+            if (nreagentE.IsChecked)
+            {
+                eelisa =3;
+            }
+            if (reagenteP.IsChecked)
+            {
+                eparasita =1;
+            }
+            if (nreagenteP.IsChecked)
+            {
+                eparasita = 2;
+            }
+            if (nrealizadoP.IsChecked)
+            {
+                eparasita =3;
+            }
+            if (confirmado.IsChecked)
+            {
+                conlusaocaso = "1";
+            }
+            if (descartado.IsChecked)
+            {
+                conlusaocaso = "0";
+            }
+            if (rb_Tratamento.IsChecked)
+            {
+                evo = "1";
+            }
+            if (rb_Encoleirado.IsChecked)
+            {
+                evo = "2";
+            }
+            if (rb_Eutanasiado.IsChecked)
+            {
+                evo = "3";
+            }
 
         }
     }

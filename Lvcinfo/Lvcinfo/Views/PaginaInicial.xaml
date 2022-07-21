@@ -49,9 +49,9 @@
                             </Grid.RowDefinitions>
                             <Button  Text="Nova Notificação"  Command="{Binding novaNotificacaoCommand}" />
                             <Button Grid.Column="1"
-                                  Text="Investigações em Andamento" />
+                                  Text="Investigações em Andamento" Command="{Binding listarRegistroCommand}" />
                             <Button Grid.Row="1"
-                                  Text="Investigações Finalizadas " />
+                                  Text="Investigações Finalizadas" Command="{Binding listarRegistroEncerradoCommand}" />
                             <Button Text="Suporte" Grid.Column="1"
                                   Grid.Row="1"/>
                         </Grid>

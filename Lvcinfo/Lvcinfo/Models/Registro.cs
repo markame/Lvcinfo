@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Lvcinfo.Models
 {
-    public class Ocorrencia
+    public class Registro
     {
-        public int Id_Registro { get; set; }
+      
         public string Data_Notificacao { get; set; }
         public string UF { get; set; }
         public string Muni_Notificacao { get; set; }
@@ -46,7 +46,7 @@ namespace Lvcinfo.Models
         public bool Vomito_Sintoma { get; set; }
         public bool Diarreia_Sintoma { get; set; }
         public bool Sanguenasal_Sintoma { get; set; }
-        public int Id_Usuario { get; set; }
+        public string Id_Usuario { get; set; }
         public string Qual_Sintoma { get; set; }
         public string Data_Amostra { get; set; }
         public int Tipo_Amosta { get; set; }
@@ -54,9 +54,10 @@ namespace Lvcinfo.Models
         public int Exame_Rapido { get; set; }
         public int Exame_Elisa { get; set; }
         public int Exame_Parasitologico { get; set; }
-        public int Conclusao_Caso { get; set; }
+        public string Conclusao_Caso { get; set; }
 
-        public int Evolucao_Caso { get; set; }
+        public string Evolucao_Caso { get; set; }
+        public string Data_Eutanasia {get; set; }
         
 
     }
