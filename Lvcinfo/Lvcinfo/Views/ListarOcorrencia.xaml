@@ -4,13 +4,13 @@
              x:Class="Lvcinfo.Views.ListarRegistro"
              Title="Investigações em andamento">
  
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#199B2D</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        <ScrollView>
+                    <ContentPage.Resources>
+                        <ResourceDictionary>
+                            <Color x:Key="Accent">#199B2D</Color>
+                        </ResourceDictionary>
+                    </ContentPage.Resources>
+                    <ContentPage.Content>
+                        <ScrollView>
         <StackLayout Spacing="3" Padding="15">
                 <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
@@ -35,7 +35,7 @@
                                             <Label x:Name="teste_rapido" Text="{Binding teste_rapido}"/>
                                             <Label Text="Situação do Animal:"/>
                                             <Label x:Name="situacao_animal" Text="{Binding Situacao_AnimalLabel}"/>
-                                            <Button BackgroundColor="AliceBlue" ImageSource="edit.png" Text="Alterar"/>
+                                            <Button ImageSource="edit.png" Text="Alterar"/>
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>

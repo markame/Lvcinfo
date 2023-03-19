@@ -5,6 +5,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using AndroidX.AppCompat.App;
+using System.Net;
+using System.Net.Http;
 
 namespace Lvcinfo.Droid
 {
@@ -13,6 +15,14 @@ namespace Lvcinfo.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
+            var httpClientHandler = new HttpClientHandler();
+
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+                (message, certificate, chain, sslPolicyErrors) => true;
+            var httpClient = new HttpClient(httpClientHandler);
+
+
             AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
             base.OnCreate(savedInstanceState);
 

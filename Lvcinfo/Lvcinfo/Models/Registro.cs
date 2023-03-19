@@ -29,7 +29,6 @@ namespace Lvcinfo.Models
         public string Porte_Animal { get; set; }
         public string Pelagem_Animal { get; set; }
         public string Foto_Animal { get; set; }
-        public string Outros_Animal { get; set; }
         public int Procedencia_Animal { get; set; }
         public int Abrigo_Animal { get; set; }
         public int Outro_Animal { get; set; }

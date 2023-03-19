@@ -40,7 +40,7 @@ namespace Lvcinfo.Views
         private string conlusaocaso;
         private string evo;
 
-        FirebaseService fbService = new FirebaseService();
+       JsonConnect jsonconnect = new JsonConnect();
         public NovaRegistro()
         {
             InitializeComponent();
@@ -71,14 +71,15 @@ namespace Lvcinfo.Views
             try
             {
 
-                await fbService.addRegistro(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text
-                     , fonte_Notificacao.Text, nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text),
-                     bairro_Proprietario.Text, cep_Proprietario.Text, complemento_Proprietario.Text, municipio_Proprietario.Text, zona_Proprietario.Text,
-                     telefone_Proprietario.Text, email_Proprietario.Text, cpf_Proprietario.Text, nascimento_Proprietario.Text, nome_Animal.Text, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text,
-                     pelagem_Animal.Text, fotoanimal, PROCEDENCIA, ABRIGO, OUTRO, data_Sintomas.Date.ToLongDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
-                     apetite, ocular, linfo, vomito, diarreia, sanguenasal, user.UserName, qual_sintoma.Text, data_Amostra.Date.ToShortDateString(), amostra, qual_amostra.Text, erapido, eelisa, eparasita, conlusaocaso, evo, pic_Data.Date.ToShortDateString());
+                await jsonconnect.EnviadorMethod(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text, fonte_Notificacao.Text,
+                    nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text), bairro_Proprietario.Text,
+                    cep_Proprietario.Text, complemento_Proprietario.Text, municipio_Proprietario.Text, zona_Proprietario.Text, telefone_Proprietario.Text,
+                    email_Proprietario.Text, cpf_Proprietario.Text, nascimento_Proprietario.Text, nome_Animal.Text, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text,
+                    pelagem_Animal.Text, fotoanimal, PROCEDENCIA, ABRIGO, OUTRO, data_Sintomas.Date.ToShortDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
+                     apetite, ocular, linfo, vomito, diarreia, sanguenasal, "1", qual_sintoma.Text, data_Amostra.Date.ToShortDateString(), amostra, qual_amostra.Text, erapido, eelisa, eparasita, conlusaocaso, evo, pic_Eutanasia.Date.ToShortDateString()
+                    );
 
-                await DisplayAlert("Success", "Investigação incluída com sucesso", "OK");
+                await DisplayAlert("Successo", "Investigação incluída com sucesso", "OK");
             }
             catch(Exception ex)
             {
@@ -125,7 +126,7 @@ namespace Lvcinfo.Views
             label_Eu.IsEnabled = true;
             rb_Eutanasiado.IsEnabled = true;
             label_Data.IsEnabled  = true;
-            pic_Data.IsEnabled  = true;
+            pic_Eutanasia.IsEnabled  = true;
 
 
         }

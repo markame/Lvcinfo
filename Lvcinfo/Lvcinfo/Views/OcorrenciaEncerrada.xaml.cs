@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LVCinfo.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,16 @@ namespace Lvcinfo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OcorrenciaEncerrada : ContentPage
     {
+        FirebaseService fbService = new FirebaseService();
         public OcorrenciaEncerrada()
         {
+            BindingContext = this;
             InitializeComponent();
+        }
+        protected async override void OnAppearing()
+        {
+            var registroencerrado = await fbService.GetRegistrosBySituacao("0");
+            listar_registro_encerrado.ItemsSource = registroencerrado;
         }
     }
 }

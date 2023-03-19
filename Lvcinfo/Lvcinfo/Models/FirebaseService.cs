@@ -208,5 +208,70 @@ namespace LVCinfo.Services
 
         }
 
+        public async Task UpDateRegistro(string datano, string ufno, string munino, string fonteno, string nomepro, string lograpro, int numeropro
+            , string bairropro, string ceppro, string complementopro, string municipiopro, string zonapro, string telefonepro, string emailpro, string cpfpro
+            , string nascimentopro, string nomeani, string idadeani, string racaani, string porteani, string pelagemani, string fotoani, int procedenciaani,
+             int abrigoani, int outroanima, string data_Sintoma, bool emagrecimento_Sintoma, bool alopecia_Sintoma, bool hepatomegalia_Sintoma, bool apatia_Sintoma,
+             bool lesoes_Sintoma, bool onicogrifose_Sintoma, bool apetite_Sintoma, bool alteraocular_Sintoma, bool linfomegalia_Sintoma, bool vomito_Sintoma, bool diarreia_Sintoma, bool sanguenasal_Sintoma, string id_Usuario
+            , string qual_Sintoma, string data_Amostra, int tipo_Amosta, string qual_Amostra, int exame_Rapido, int exame_Elisa, int exame_Parasitologico, string conclusao_Caso, string evolucao_Caso, string data_Eutanasia)
+        {
+            var toUpdateRegistro = (await firebase.Child("Registro").OnceAsync<Registro>()).Where(a => a.Object.Id_Usuario == id_Usuario).FirstOrDefault
+                ();
+            await firebase.Child("Registro")
+                .Child(toUpdateRegistro.Key)
+                .PutAsync(new Registro()
+                {
+                    Data_Notificacao = datano,
+                    UF = ufno,
+                    Muni_Notificacao = munino,
+                    Fonte_Notificacao = fonteno,
+                    Nome_Proprietario = nomepro,
+                    Logradouro_Proprietario = lograpro,
+                    Numero_Proprietario = numeropro,
+                    Bairro_Proprietario = bairropro,
+                    Cep_Proprietario = ceppro,
+                    Complemento_Proprietario = complementopro,
+                    Municipio_Proprietario = municipiopro,
+                    Zona_Proprietario = zonapro,
+                    Telefone_Proprietario = telefonepro,
+                    Email_Proprietario = emailpro,
+                    Cpf_Proprietario = cpfpro,
+                    Nascimento_Proprietario = nascimentopro,
+                    Nome_Animal = nomeani,
+                    Idade_Animal = idadeani,
+                    Raca_Animal = racaani,
+                    Porte_Animal = porteani,
+                    Pelagem_Animal = pelagemani,
+                    Foto_Animal = fotoani,
+                    Procedencia_Animal = procedenciaani,
+                    Abrigo_Animal = abrigoani,
+                    Outro_Animal = outroanima,
+                    Data_Sintoma = data_Sintoma,
+                    Emagrecimento_Sintoma = emagrecimento_Sintoma,
+                    Alopecia_Sintoma = alopecia_Sintoma,
+                    Hepatomegalia_Sintoma = hepatomegalia_Sintoma,
+                    Apatia_Sintoma = apatia_Sintoma,
+                    Lesoes_Sintoma = lesoes_Sintoma,
+                    Onicogrifose_Sintoma = onicogrifose_Sintoma,
+                    Apetite_Sintoma = apetite_Sintoma,
+                    Alteraocular_Sintoma = alteraocular_Sintoma,
+                    Linfomegalia_Sintoma= linfomegalia_Sintoma,
+                    Vomito_Sintoma = vomito_Sintoma,
+                    Diarreia_Sintoma = diarreia_Sintoma,
+                    Sanguenasal_Sintoma = sanguenasal_Sintoma,
+                    Id_Usuario =  id_Usuario,
+                    Qual_Sintoma = qual_Sintoma,
+                    Data_Amostra = data_Amostra,
+                    Tipo_Amosta = tipo_Amosta,
+                    Qual_Amostra = qual_Amostra,
+                    Exame_Rapido = exame_Rapido,
+                    Exame_Elisa =  exame_Elisa,
+                    Exame_Parasitologico = exame_Parasitologico,
+                    Conclusao_Caso = conclusao_Caso,
+                    Evolucao_Caso = evolucao_Caso,
+                    Data_Eutanasia = data_Eutanasia
+                });
+        }
+
     }
 }

@@ -362,7 +362,7 @@
                                 <Label x:Name="label_Eu" Text="Eutanasiado" IsEnabled="false"/>
                                 <RadioButton x:Name="rb_Eutanasiado" IsEnabled="false"/>
                                 <Label x:Name="label_Data" Text="Data da Eutanásia" IsEnabled="false"/>
-                                <DatePicker x:Name="pic_Data" IsEnabled="false"/>
+                                <DatePicker x:Name="pic_Eutanasia" IsEnabled="false"/>
                             </StackLayout>
                         </StackLayout>
                     </Frame>

@@ -15,7 +15,6 @@ namespace Lvcinfo.Views
 
     public partial class ListarRegistro : ContentPage
     {
-        FirebaseService fbService = new FirebaseService();
         public ListarRegistro()
         {
             BindingContext = this;
@@ -26,17 +25,11 @@ namespace Lvcinfo.Views
         protected async override void OnAppearing()
         {
 
-            var registrosbd = await fbService.GetRegistrosBySituacao("1");
-            listar_Registro.ItemsSource = registrosbd;
+            
 
         }
    
 
-        public async void busca()
-        {
-            var Registros_listar = await fbService.GetRegistrosAll();
-            listar_Registro.ItemsSource = Registros_listar;
-            
-        }
+    
     }
 }
