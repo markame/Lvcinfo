@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Lvcinfo.Models;
-using LVCinfo.Services;
+
 using Lvcinfo.Model;
 
 namespace Lvcinfo.Views
@@ -21,6 +21,7 @@ namespace Lvcinfo.Views
         private int PROCEDENCIA;
         private int ABRIGO;
         private int OUTRO;
+        private int PresencaAninal;
         private bool emagrecimento;
         private bool alopecia;
         private bool hepato;
@@ -29,21 +30,21 @@ namespace Lvcinfo.Views
         private bool onico;
         private bool apetite;
         private bool ocular;
-        private bool linfo;
-        private bool vomito;
-        private bool diarreia;
-        private bool sanguenasal;
         private int amostra;
         private int erapido;
         private int eelisa;
         private int eparasita;
         private string conlusaocaso;
-        private string evo;
+        private int evo;
+        private string sintomas;
+        private int sexo;
+        private string dataeutanasia;
 
        JsonConnect jsonconnect = new JsonConnect();
         public NovaRegistro()
         {
             InitializeComponent();
+          
         }
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
@@ -66,17 +67,18 @@ namespace Lvcinfo.Views
         private async void Salvar_Clicked(object sender, EventArgs e)
         {
 
-            CheckAndRadios();
+           
 
             try
             {
+                Radiostrigger();
+                Checkstrigger();
 
                 await jsonconnect.EnviadorMethod(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text, fonte_Notificacao.Text,
                     nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text), bairro_Proprietario.Text,
-                    cep_Proprietario.Text, complemento_Proprietario.Text, municipio_Proprietario.Text, zona_Proprietario.Text, telefone_Proprietario.Text,
-                    email_Proprietario.Text, cpf_Proprietario.Text, nascimento_Proprietario.Text, nome_Animal.Text, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text,
-                    pelagem_Animal.Text, fotoanimal, PROCEDENCIA, ABRIGO, OUTRO, data_Sintomas.Date.ToShortDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
-                     apetite, ocular, linfo, vomito, diarreia, sanguenasal, "1", qual_sintoma.Text, data_Amostra.Date.ToShortDateString(), amostra, qual_amostra.Text, erapido, eelisa, eparasita, conlusaocaso, evo, pic_Eutanasia.Date.ToShortDateString()
+                    complemento_Proprietario.Text, zona_Proprietario.Text, cpf_Proprietario.Text, nome_Animal.Text, sexo, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text
+                    , fotoanimal, PROCEDENCIA, ABRIGO, PresencaAninal, data_Sintomas.Date.ToShortDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
+                     apetite, ocular , "1", qual_sintoma.Text, dataDPP.Date.ToShortDateString(), erapido, dataElisa.Date.ToShortDateString(), eelisa, dataParasitologico.Date.ToShortDateString(), eparasita, conlusaocaso, evo, pic_Eutanasia.Date.ToShortDateString()
                     );
 
                 await DisplayAlert("Successo", "Investigação incluída com sucesso", "OK");
@@ -95,11 +97,7 @@ namespace Lvcinfo.Views
 
         }
 
-        private void sim_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            label_outros.IsVisible = true;
-            quais_animais.IsVisible = true;
-        }
+       
 
         private async void base64encode(MediaFile file)
         {
@@ -129,19 +127,41 @@ namespace Lvcinfo.Views
             pic_Eutanasia.IsEnabled  = true;
 
 
+             
+
         }
+       
 
         private void outro_sintoma_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            quais_animais.IsEnabled = true;
-        }
+          
+            if (outro_sintoma.IsChecked)
+            {
 
-        private void QualAmostraChecked(object sender, CheckedChangedEventArgs e)
-        {
-            qual_amostra.IsEnabled = true;
+                qual_sintoma.IsVisible = true;
+             
+
+            }
+            else
+            {
+               qual_sintoma.IsVisible=false;
+                qual_sintoma.Text = "SEM SINTOMAS ADICIONAIS";
+            }
         }
-        public void CheckAndRadios()
+        public void  Radiostrigger()
         {
+
+            if (SexoM.IsChecked)
+            {
+                sexo = 1;
+            }
+            if (SexoF.IsChecked)
+            {
+                sexo = 2;
+            }
+
+
+
             if (urbana.IsChecked)
             {
                 PROCEDENCIA = 1;
@@ -161,21 +181,78 @@ namespace Lvcinfo.Views
             }
             if (semi.IsChecked)
             {
-                ABRIGO = 2;
-            }
-            if (errante.IsChecked)
-            {
-                ABRIGO = 3;
+                ABRIGO=2;
             }
 
-            if (nao.IsChecked)
+            if (Presencasim.IsChecked)
             {
-                OUTRO = 0;
+                PresencaAninal = 1;
             }
-            if (sim.IsChecked)
+            if (PresencaNao.IsChecked)
             {
-                OUTRO = 1;
+                PresencaAninal=0;
             }
+
+            if (nreagenteR.IsChecked)
+            {
+                erapido = 1;
+            }
+            if (nreagenteR.IsChecked)
+            {
+                erapido=0;
+            }
+            if (nreagenteR.IsChecked)
+            {
+                erapido =2;
+            }
+
+            if (Elisa_Positivo.IsChecked)
+            {
+                eelisa = 1;
+            }
+            if (Elisa_Negativo.IsChecked)
+            {
+                eelisa=0;
+            }
+            if (Elisa_NaoRealizado.IsChecked)
+            {
+                eelisa = 2;
+            }
+            if (Elisa_Indeterminado.IsChecked)
+            {
+                eelisa= 3;
+            }
+
+            if (reagenteP.IsChecked)
+            {
+                eparasita = 1;
+            }
+            if (nreagenteP.IsChecked)
+            {
+                eparasita=0;
+            }
+            if (nrealizadoP.IsChecked)
+            {
+                eparasita = 2;
+            }
+            if (rb_Tratamento.IsChecked)
+            {
+                evo = 1;
+            }
+            if (rb_Encoleirado.IsChecked)
+            {
+                evo =2;
+            }
+            if (rb_Eutanasiado.IsChecked)
+            {
+                evo =3;
+                dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
+
+            }
+        }
+
+        public void Checkstrigger()
+        {
 
             if (emagrecimento_Animal.IsChecked)
             {
@@ -185,6 +262,7 @@ namespace Lvcinfo.Views
             {
                 emagrecimento = false;
             }
+
             if (alopecia_Animal.IsChecked)
             {
                 alopecia = true;
@@ -203,12 +281,13 @@ namespace Lvcinfo.Views
             }
             if (apatia_Animal.IsChecked)
             {
-                apatia = true;
+                apatia = true;  
             }
             else
             {
                 apatia = false;
             }
+
             if (lesoes_Animal.IsChecked)
             {
                 lesao = true;
@@ -235,112 +314,48 @@ namespace Lvcinfo.Views
             }
             if (alteraoculares_Animal.IsChecked)
             {
-                ocular = true;
+               ocular = true;
             }
             else
             {
                 ocular = false;
             }
-            if (linfomegalia_Animal.IsChecked)
-            {
-                linfo =  true;
-            }
-            else
-            {
-                linfo = false;
-            }
-            if (vomito_Animal.IsChecked)
-            {
-                vomito = true;
-            }
-            else
-            {
-                vomito = false;
-            }
-            if (diarreia_Animal.IsChecked)
-            {
-                diarreia = true;
-            }
-            else
-            {
-                diarreia = false;
-            }
-            if (sanguenasal_Animal.IsChecked)
-            {
-                sanguenasal = true;
 
-            }
-            else
-            {
-                sanguenasal = false;
-            }
+          
 
 
-            if (sangue.IsChecked)
-            {
-                amostra = 1;
-            }
-            if (soro.IsChecked)
-            {
-                amostra = 2;
-            }
-            if (reagenteR.IsChecked)
-            {
-                erapido = 1;
-            }
-            if (nreagenteR.IsChecked)
-            {
-                erapido = 2;
-            }
-            if (nrealizadoR.IsChecked)
-            {
-                erapido = 3;
-            }
-            if (reagenteE.IsChecked)
-            {
-                eelisa = 1;
-            }
-            if (nrealizadoE.IsChecked)
-            {
-                eelisa = 2;
-            }
-            if (nreagentE.IsChecked)
-            {
-                eelisa =3;
-            }
-            if (reagenteP.IsChecked)
-            {
-                eparasita =1;
-            }
-            if (nreagenteP.IsChecked)
-            {
-                eparasita = 2;
-            }
-            if (nrealizadoP.IsChecked)
-            {
-                eparasita =3;
-            }
-            if (confirmado.IsChecked)
-            {
-                conlusaocaso = "1";
-            }
-            if (descartado.IsChecked)
-            {
-                conlusaocaso = "0";
-            }
-            if (rb_Tratamento.IsChecked)
-            {
-                evo = "1";
-            }
-            if (rb_Encoleirado.IsChecked)
-            {
-                evo = "2";
-            }
-            if (rb_Eutanasiado.IsChecked)
-            {
-                evo = "3";
-            }
+        }
+
+        private void descartado_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            label_Evo.IsEnabled =false;
+            label_Tra.IsEnabled = false;
+            rb_Tratamento.IsEnabled = false;
+            rb_Encoleirado.IsEnabled = false;
+            label_Enco.IsEnabled = false;
+            rb_Encoleirado.IsEnabled =false;
+            label_Eu.IsEnabled = false;
+            rb_Eutanasiado.IsEnabled = false;
+            label_Data.IsEnabled  = false;
+            pic_Eutanasia.IsEnabled  = false;
+            evo = 4;
+            dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
+
 
         }
     }
+
+   
+
+       
+           
+         
+          
+
+
+           
+          
+
+        
+    
 }

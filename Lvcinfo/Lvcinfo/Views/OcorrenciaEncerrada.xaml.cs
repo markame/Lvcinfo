@@ -21,8 +21,8 @@ namespace Lvcinfo.Views
         }
         protected async override void OnAppearing()
         {
-            var registroencerrado = await fbService.GetRegistrosBySituacao("0");
-            listar_registro_encerrado.ItemsSource = registroencerrado;
+        
+            
         }
     }
 }

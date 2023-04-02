@@ -24,6 +24,7 @@ namespace Lvcinfo.Models
         public string Cpf_Proprietario { get; set; }
         public string Nascimento_Proprietario { get; set; }
         public string Nome_Animal { get; set; }
+        public int Sexo_Animal { get; set; }
         public string Idade_Animal { get; set; }
         public string Raca_Animal { get; set; }
         public string Porte_Animal { get; set; }
@@ -41,21 +42,17 @@ namespace Lvcinfo.Models
         public bool Onicogrifose_Sintoma { get; set; }
         public bool Apetite_Sintoma { get; set; }
         public bool Alteraocular_Sintoma { get; set; }
-        public bool Linfomegalia_Sintoma { get; set; }
-        public bool Vomito_Sintoma { get; set; }
-        public bool Diarreia_Sintoma { get; set; }
-        public bool Sanguenasal_Sintoma { get; set; }
         public string Id_Usuario { get; set; }
-        public string Qual_Sintoma { get; set; }
-        public string Data_Amostra { get; set; }
-        public int Tipo_Amosta { get; set; }
-        public string Qual_Amostra {get; set; }
+        public string Outros_Sintoma { get; set; }
+        public string Data_DPP { get; set; }
+        
         public int Exame_Rapido { get; set; }
+        public string Data_Elisa { get; set; }
         public int Exame_Elisa { get; set; }
+        public string Data_Parasitologico { get; set; }
         public int Exame_Parasitologico { get; set; }
-        public string Conclusao_Caso { get; set; }
 
-        public string Evolucao_Caso { get; set; }
+        public int Evolucao_Caso { get; set; }
         public string Data_Eutanasia {get; set; }
         
 
