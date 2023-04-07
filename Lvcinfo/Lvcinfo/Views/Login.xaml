@@ -8,28 +8,36 @@
     <ContentPage.BindingContext>
         <vm:LoginViewModel/>
     </ContentPage.BindingContext>
+ 
+   
 
     <StackLayout>
-        <Frame BackgroundColor="#006400" Padding="24" CornerRadius="0">
-            <Label Text="Bem vindo!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-           
-        </Frame>
-        <StackLayout Padding="10,150,10,0" VerticalOptions="Center" >
-            <Entry Keyboard="Numeric" Placeholder="Matricula ou CRM" Text="{Binding UserName}" />
-            <Entry Keyboard="Numeric" Placeholder="Senha" IsPassword ="True" Text="{Binding Password}" />
+        <StackLayout>
+             <Frame BackgroundColor="#006400" Padding="24" CornerRadius="0">
+
+                <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
+
+            </Frame>
+        </StackLayout>
+        
+         
+        <StackLayout  Padding="10,150,10,0" VerticalOptions="Center" >
+          
+            <Entry x:Name="UserName" Keyboard="Numeric" Placeholder="Matricula ou CRM" />
+            <Entry x:Name="Password" Keyboard="Numeric" Placeholder="Senha" IsPassword ="True" />
             <!--<Button Text="Registrar" HorizontalOptions="Center" BackgroundColor="DarkSlateGray"
                         TextColor="White" WidthRequest="300" HeightRequest="40"
                         Visual="Material"
                         Command="{Binding RegisterCommand}"
                         />-->
 
-
+           
         </StackLayout>
         <StackLayout Padding="10,150,10,0" VerticalOptions="Center" >
-            <Button VerticalOptions="Center" Text="Entrar" Command="{Binding LoginCommand}"/>
-            
-            
-            <Button VerticalOptions="Center" Text="Fale Conosco"/>
+            <Button CornerRadius="20" VerticalOptions="Center" Text="Entrar" Clicked="Button_Login" />
+
+            <!--Command="{Binding LoginCommand}-->
+            <Button CornerRadius="20" VerticalOptions="Center" Text="Fale Conosco"/>
 
 
 

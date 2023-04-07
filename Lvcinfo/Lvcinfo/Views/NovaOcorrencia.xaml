@@ -12,11 +12,11 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout Spacing="3" Padding="10">
+        <StackLayout Spacing="3" Padding="5">
                 <StackLayout>
-                <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <ContentView Padding="0,15,0,15" VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+                    <StackLayout >
+                        <ContentView Padding="0,15,0,15" >
                             <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
                         </ContentView>
                     </StackLayout>
@@ -97,7 +97,7 @@
                             <Entry Keyboard="Text" Grid.Column="1" VerticalOptions="Fill" x:Name="logradouro_Proprietario"/>
 
                             <Label VerticalOptions="End" Grid.Row="1" FontSize="Body" Text="Número:" />
-                            <Entry Keyboard="Text" Grid.Column="1" Grid.Row="1" VerticalOptions="Fill" x:Name="numero_Proprietario"/>
+                            <Entry Keyboard="Numeric" Grid.Column="1" Grid.Row="1" VerticalOptions="Fill" x:Name="numero_Proprietario"/>
 
                             <Label VerticalOptions="End" Grid.Row="2" FontSize="Body" Text="Bairro:" />
                             <Entry Keyboard="Text" Grid.Column="1" Grid.Row="2" VerticalOptions="Fill" x:Name="bairro_Proprietario"/>
@@ -115,7 +115,7 @@
                     <Frame CornerRadius="10" BorderColor="Black">
                         <StackLayout>
                             <Label Text="Nome do animal:" FontSize="Body"/>
-                            <Entry x:Name="nome_Animal"/>
+                            <Entry Keyboard="Text" x:Name="nome_Animal"/>
 
                             <Label Text="Sexo:" FontSize="Body"/>
                             <Grid Margin="5,5,5,25">
@@ -265,7 +265,7 @@
                                     <Label Text="Outros" FontSize="Body" VerticalOptions="Center"/>
                                     <CheckBox CheckedChanged="outro_sintoma_CheckedChanged" x:Name="outro_sintoma"/>
                                 </StackLayout>
-                                <Entry IsVisible="false" x:Name="qual_sintoma" Placeholder="Quais?" />
+                                <Entry IsVisible="false" Keyboard="Text" x:Name="qual_sintoma" Placeholder="Quais?" />
 
 
                             </StackLayout>
@@ -344,7 +344,7 @@
                             <Frame>
                             <StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label VerticalOptions="Center" FontAttributes="Bold" Text="Parasitológico:" FontSize="Body"/>
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" Text="Diagnóstico parasitológico:" FontSize="Body"/>
                                         <DatePicker x:Name="dataParasitologico"/>
 
                                     </StackLayout>
@@ -352,8 +352,8 @@
                                 
                            
                             <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding parasita}">
-                                
-                                <Label FontSize="Body"  Text="Positivo" />
+
+                                            <Label FontSize="Body" VerticalOptions="Center" Text="Positivo" />
                                 <RadioButton x:Name="reagenteP"/>
                                 <Label FontSize="Body" Text="Negativo" VerticalOptions="Center"/>
                                 <RadioButton x:Name="nreagenteP"/>
@@ -370,11 +370,27 @@
                         </StackLayout>
 
                     </Frame>
+                <!--box encoleirado-->
+                    <Frame CornerRadius="10" BorderColor="Black">
+
+                        <StackLayout>
+                            <Label Text="O animal foi encoleirado (deltametrina 4%):" FontSize="Body"/>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton  x:Name="Encoleirado_S"/>
+                                <Label x:Name="labelB" VerticalOptions="Center" Text="Sim"/>
+                                <RadioButton x:Name="Encoleirado_N"/>
+                                <Label x:Name="labelC" VerticalOptions="Center" Text="Não"/>
+                               
+                            </StackLayout>
+
+                        </StackLayout>
+                        
+                    </Frame>
                     
                     <!--começo do box conclusao-->
                     <Frame CornerRadius="10" BorderColor="Black">
                         <StackLayout>
-                        <Label Text="Classificação final:" FontSize="Body"/>
+                        <Label Text="Conclusao do caso:" FontSize="Body"/>
                         <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding resultado}">
                                 <Label FontSize="Body"    Text="Confirmado" />
                                 <RadioButton x:Name="confirmado" CheckedChanged="ConfirmadoCheck"/>
@@ -384,20 +400,25 @@
                         </StackLayout>
                             <Frame>
                                 <StackLayout>
-                            <Label x:Name="label_Evo" Text="Evolução do caso:" FontSize="Body" IsEnabled="false"/>
+                          
                             <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding evo}">
+                                        <RadioButton x:Name="rb_Tratamento" IsEnabled="false"/>
+                                        <Label x:Name="label_Tra" Text="Animal em tratamento" IsEnabled="false"/>
+                                        <RadioButton x:Name="rb_Recolhido" CheckedChanged="rb_Recolhido_CheckedChanged" IsEnabled="false"/>
+                                        <Label x:Name="label_Enco" Text="Recolhido para eutanásia" IsEnabled="false"/>
+                                        <RadioButton  x:Name="rb_NEutanasiado"  IsEnabled="false"/>
+
+                                        <Label x:Name="label_Eu" Text="Não recolhido" IsEnabled="false"/>
                                 
-                                <Label x:Name="label_Tra" Text="Em tratamento" IsEnabled="false"/>
-                                <RadioButton x:Name="rb_Tratamento" IsEnabled="false"/>
-                                <Label x:Name="label_Enco" Text="Encoleirado" IsEnabled="false"/>
-                                <RadioButton x:Name="rb_Encoleirado" IsEnabled="false"/>
-                                <Label x:Name="label_Eu" Text="Eutanasiado" IsEnabled="false"/>
-                                <RadioButton x:Name="rb_Eutanasiado" IsEnabled="false"/>
-                                
-                                
-                            </StackLayout>
-                            <Label x:Name="label_Data" Text="Data da Eutanásia" IsEnabled="false"/>
+                                        
+
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                    <Label VerticalOptions="Center"  x:Name="label_Data" Text="Data da eutanásia" IsEnabled="false"/>
                             <DatePicker x:Name="pic_Eutanasia" IsEnabled="false"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>

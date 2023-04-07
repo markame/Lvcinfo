@@ -20,23 +20,24 @@ namespace Lvcinfo.Views
         private string fotoanimal;
         private int PROCEDENCIA;
         private int ABRIGO;
-        private int OUTRO;
+     
         private int PresencaAninal;
-        private bool emagrecimento;
-        private bool alopecia;
-        private bool hepato;
-        private bool apatia;
-        private bool lesao;
-        private bool onico;
-        private bool apetite;
-        private bool ocular;
-        private int amostra;
+        private int emagrecimento;
+        private int alopecia;
+        private int hepato;
+        private int apatia;
+        private int lesao;
+        private int onico;
+        private int apetite;
+        private int ocular;
+        private int encoleirado;
+    
         private int erapido;
         private int eelisa;
         private int eparasita;
         private string conlusaocaso;
         private int evo;
-        private string sintomas;
+       
         private int sexo;
         private string dataeutanasia;
 
@@ -54,7 +55,7 @@ namespace Lvcinfo.Views
                 DefaultCamera = CameraDevice.Rear,
                 SaveToAlbum = true,
                 Directory = "LvcInfo",
-                Name = null,
+                Name = nome_Animal.Text,
                 CompressionQuality = 100
             };
             MediaFile photo = await CrossMedia.Current.TakePhotoAsync(cameraMediaOptions);
@@ -74,26 +75,31 @@ namespace Lvcinfo.Views
                 Radiostrigger();
                 Checkstrigger();
 
+                if(qual_sintoma.Text == null)
+                {
+                    qual_sintoma.Text = "SEM SINTOMAS ADICIONAIS";
+                }
+
+                if (evo == 4)
+                {
+                    dataeutanasia = "ANIMAL NAO EUTANASIADO";
+                }
+               
                 await jsonconnect.EnviadorMethod(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text, fonte_Notificacao.Text,
                     nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text), bairro_Proprietario.Text,
                     complemento_Proprietario.Text, zona_Proprietario.Text, cpf_Proprietario.Text, nome_Animal.Text, sexo, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text
                     , fotoanimal, PROCEDENCIA, ABRIGO, PresencaAninal, data_Sintomas.Date.ToShortDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
-                     apetite, ocular , "1", qual_sintoma.Text, dataDPP.Date.ToShortDateString(), erapido, dataElisa.Date.ToShortDateString(), eelisa, dataParasitologico.Date.ToShortDateString(), eparasita, conlusaocaso, evo, pic_Eutanasia.Date.ToShortDateString()
+                     apetite, ocular , "1", qual_sintoma.Text, dataDPP.Date.ToShortDateString(), erapido, dataElisa.Date.ToShortDateString(), eelisa, dataParasitologico.Date.ToShortDateString(), eparasita, conlusaocaso, evo, dataeutanasia, encoleirado
                     );
+                await DisplayAlert("Tudo ok por aqui.", "Cadasto do animal '" + nome_Animal.Text+ "' realizado com sucesso!", "OK");
+                ClearAll();
 
-                await DisplayAlert("Successo", "Investigação incluída com sucesso", "OK");
             }
             catch(Exception ex)
             {
-                await DisplayAlert("Erro","Ocorreu um erro com o cadastro da investigação. Certifiquei-se que campos importantes não estão em branco "+ex.ToString(), "OK");
+                await DisplayAlert("Erro","Ocorreu um erro com o cadastro da investigação. Certifique-se que campos importantes não estão em branco "+ex.ToString(), "OK");
+                ClearAll();
             }
-
-
-
-
-            
-
-
 
         }
 
@@ -107,7 +113,7 @@ namespace Lvcinfo.Views
             string base64 = System.Convert.ToBase64String(bytes);
             fotoanimal = base64;
         }
-        private async void PrencheImg(string imgs)
+        private  void PrencheImg(string imgs)
         {
             byte[] Base64Stream = Convert.FromBase64String(imgs);
             //FotoAnimal.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
@@ -115,19 +121,18 @@ namespace Lvcinfo.Views
 
         private void ConfirmadoCheck(object sender, CheckedChangedEventArgs e)
         {
-            label_Evo.IsEnabled =true;
+       
             label_Tra.IsEnabled = true;
             rb_Tratamento.IsEnabled = true;
-            rb_Encoleirado.IsEnabled = true;
+            rb_Recolhido.IsEnabled = true;
             label_Enco.IsEnabled = true;
-            rb_Encoleirado.IsEnabled =true;
+            rb_NEutanasiado.IsEnabled =true;
             label_Eu.IsEnabled = true;
-            rb_Eutanasiado.IsEnabled = true;
             label_Data.IsEnabled  = true;
-            pic_Eutanasia.IsEnabled  = true;
+          
 
 
-             
+
 
         }
        
@@ -145,7 +150,7 @@ namespace Lvcinfo.Views
             else
             {
                qual_sintoma.IsVisible=false;
-                qual_sintoma.Text = "SEM SINTOMAS ADICIONAIS";
+               
             }
         }
         public void  Radiostrigger()
@@ -193,7 +198,7 @@ namespace Lvcinfo.Views
                 PresencaAninal=0;
             }
 
-            if (nreagenteR.IsChecked)
+            if (reagenteR.IsChecked)
             {
                 erapido = 1;
             }
@@ -201,7 +206,7 @@ namespace Lvcinfo.Views
             {
                 erapido=0;
             }
-            if (nreagenteR.IsChecked)
+            if (nrealizadoR.IsChecked)
             {
                 erapido =2;
             }
@@ -239,15 +244,23 @@ namespace Lvcinfo.Views
             {
                 evo = 1;
             }
-            if (rb_Encoleirado.IsChecked)
+            if (rb_Recolhido.IsChecked)
             {
                 evo =2;
             }
-            if (rb_Eutanasiado.IsChecked)
+            if (rb_NEutanasiado.IsChecked)
             {
                 evo =3;
                 dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
 
+            }
+            if (Encoleirado_N.IsChecked)
+            {
+                encoleirado = 0;
+            }
+            if (Encoleirado_S.IsChecked)
+            {
+                encoleirado = 1;
             }
         }
 
@@ -256,69 +269,69 @@ namespace Lvcinfo.Views
 
             if (emagrecimento_Animal.IsChecked)
             {
-                emagrecimento = true;
+                emagrecimento = 1;
             }
             else
             {
-                emagrecimento = false;
+                emagrecimento = 0;
             }
 
             if (alopecia_Animal.IsChecked)
             {
-                alopecia = true;
+                alopecia = 1;
             }
             else
             {
-                alopecia = false;
+                alopecia = 0;
             }
             if (hepatomegalia_Animal.IsChecked)
             {
-                hepato = true;
+                hepato = 1;
             }
             else
             {
-                hepato = false;
+                hepato = 0;
             }
             if (apatia_Animal.IsChecked)
             {
-                apatia = true;  
+                apatia = 1;  
             }
             else
             {
-                apatia = false;
+                apatia = 0;
             }
 
             if (lesoes_Animal.IsChecked)
             {
-                lesao = true;
+                lesao = 1;
             }
             else
             {
-                lesao = false;
+                lesao = 0;
             }
             if (onicogrifose_Animal.IsChecked)
             {
-                onico = true;
+                onico = 1;
             }
             else
             {
-                onico = false;
+                onico = 0;
             }
             if (apetite_Animal.IsChecked)
             {
-                apetite = true;
+                apetite = 1;
             }
             else
             {
-                apetite = false;
+                apetite = 0;
             }
             if (alteraoculares_Animal.IsChecked)
             {
-               ocular = true;
+               ocular = 1;
             }
             else
             {
-                ocular = false;
+                ocular = 0;
             }
 
           
@@ -328,20 +341,79 @@ namespace Lvcinfo.Views
 
         private void descartado_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            label_Evo.IsEnabled =false;
+          
             label_Tra.IsEnabled = false;
             rb_Tratamento.IsEnabled = false;
-            rb_Encoleirado.IsEnabled = false;
+            rb_Tratamento.IsEnabled = false;
             label_Enco.IsEnabled = false;
-            rb_Encoleirado.IsEnabled =false;
+            rb_Recolhido.IsEnabled =false;
             label_Eu.IsEnabled = false;
-            rb_Eutanasiado.IsEnabled = false;
+            rb_NEutanasiado.IsEnabled = false;
             label_Data.IsEnabled  = false;
             pic_Eutanasia.IsEnabled  = false;
             evo = 4;
-            dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
+      
 
 
+        }
+
+
+        public void ClearAll()
+        {
+
+            uf.SelectedIndex = 9;
+            muni_Notificacao.Text = "";
+            fonte_Notificacao.Text = "";
+            nome_Proprietario.Text = "";
+            cpf_Proprietario.Text = "";
+            logradouro_Proprietario.Text="";
+            numero_Proprietario.Text="";
+            bairro_Proprietario.Text ="";
+            complemento_Proprietario.Text="";
+            zona_Proprietario.Text="";
+            nome_Animal.Text="";
+            idade_Animal.Text="";
+            raca_Animal.Text="";
+            porte_Animal.Text="";
+            urbana.IsChecked=false;
+            periurbana.IsChecked=false;
+            rural.IsChecked=false;
+            domiciliado.IsChecked=false;
+            semi.IsChecked=false;
+            PresencaNao.IsChecked=false;
+            Presencasim.IsChecked=false;
+            emagrecimento_Animal.IsChecked=false;
+            alopecia_Animal.IsChecked = false;
+            hepatomegalia_Animal.IsChecked=false;
+            apatia_Animal.IsChecked=false;
+            lesoes_Animal.IsChecked=false;
+            onicogrifose_Animal.IsChecked=false;
+            apetite_Animal.IsChecked=false;
+            alteraoculares_Animal.IsChecked=false;
+            qual_sintoma.Text = "";
+            outro_sintoma.IsChecked=false;
+            reagenteR.IsChecked=false;
+            nreagenteR.IsChecked=false;
+            nrealizadoR.IsChecked=false;
+            Elisa_Positivo.IsChecked=false;
+            Elisa_Negativo.IsChecked=false;
+            Elisa_Indeterminado.IsChecked=false;
+            Elisa_NaoRealizado.IsChecked=false;
+            reagenteP.IsChecked=false;
+            nreagenteP.IsChecked=false;
+            nrealizadoP.IsChecked=false;
+            rb_Tratamento.IsChecked=false;
+            rb_Recolhido.IsChecked=false;
+            rb_NEutanasiado.IsChecked=false;
+            descartado.IsChecked = false;
+            confirmado.IsChecked=false;
+
+        }
+
+        private void rb_Recolhido_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            pic_Eutanasia.IsEnabled = true;
+          
         }
     }
 

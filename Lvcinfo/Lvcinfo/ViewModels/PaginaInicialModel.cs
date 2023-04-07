@@ -24,12 +24,12 @@ namespace Lvcinfo.ViewModels
 
         private async Task listarRegistroEncerradoClick()
         {
-          Application.Current.MainPage.Navigation.PushModalAsync(new OcorrenciaEncerrada());
+          Application.Current.MainPage.Navigation.PushAsync(new OcorrenciaEncerrada());
         }
 
         private  async Task listarRegistroClick()
         {
-           Application.Current.MainPage.Navigation.PushModalAsync(new ListarRegistro());
+           Application.Current.MainPage.Navigation.PushAsync(new ListarRegistro());
         }
 
         private async Task novaNotificacaoClick()

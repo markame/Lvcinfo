@@ -15,43 +15,36 @@ namespace Lvcinfo.Models
         public string Logradouro_Proprietario { get; set; }
         public int Numero_Proprietario { get; set; }
         public string Bairro_Proprietario { get; set; }
-        public string Cep_Proprietario { get; set; }
         public string Complemento_Proprietario { get; set; }
-        public string Municipio_Proprietario { get; set; }
         public string Zona_Proprietario { get; set; }
-        public string Telefone_Proprietario { get; set; }
-        public string Email_Proprietario { get; set; }
         public string Cpf_Proprietario { get; set; }
-        public string Nascimento_Proprietario { get; set; }
         public string Nome_Animal { get; set; }
         public int Sexo_Animal { get; set; }
         public string Idade_Animal { get; set; }
         public string Raca_Animal { get; set; }
         public string Porte_Animal { get; set; }
-        public string Pelagem_Animal { get; set; }
         public string Foto_Animal { get; set; }
         public int Procedencia_Animal { get; set; }
         public int Abrigo_Animal { get; set; }
         public int Outro_Animal { get; set; }
         public string Data_Sintoma { get; set; }
-        public bool Emagrecimento_Sintoma { get; set; }
-        public bool Alopecia_Sintoma { get; set; }
-        public bool Hepatomegalia_Sintoma { get; set; }
-        public bool Apatia_Sintoma { get; set; }
-        public bool Lesoes_Sintoma { get; set; }
-        public bool Onicogrifose_Sintoma { get; set; }
-        public bool Apetite_Sintoma { get; set; }
-        public bool Alteraocular_Sintoma { get; set; }
+        public int Emagrecimento_Sintoma { get; set; }
+        public int Alopecia_Sintoma { get; set; }
+        public int Hepatomegalia_Sintoma { get; set; }
+        public int Apatia_Sintoma { get; set; }
+        public int Lesoes_Sintoma { get; set; }
+        public int Onicogrifose_Sintoma { get; set; }
+        public int Apetite_Sintoma { get; set; }
+        public int Alteraocular_Sintoma { get; set; }
         public string Id_Usuario { get; set; }
         public string Outros_Sintoma { get; set; }
         public string Data_DPP { get; set; }
-        
         public int Exame_Rapido { get; set; }
         public string Data_Elisa { get; set; }
         public int Exame_Elisa { get; set; }
         public string Data_Parasitologico { get; set; }
         public int Exame_Parasitologico { get; set; }
-
+        public int Animal_Encoleirado { get; set; }
         public int Evolucao_Caso { get; set; }
         public string Data_Eutanasia {get; set; }
         
