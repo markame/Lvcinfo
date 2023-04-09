@@ -1,4 +1,4 @@
-O repositório https://github.com/markame/Lvcinfo contém uma aplicação desenvolvida em Xamarin Forms que utiliza uma API RESTful em PHP para cadastrar investigações sobre animais com leishmaniose.
+O repositório https://github.com/markame/Lvcinfo contém uma aplicação desenvolvida em Xamarin Forms que utiliza uma API RESTful em PHP para cadastrar investigações sobre animais com leishmaniose visceral.
 
 A Leishmaniose visceral é uma doença parasitária que afeta cães e humanos. A aplicação Lvcinfo foi desenvolvida para facilitar o registro e gerenciamento de informações sobre animais com essa doença.
 
