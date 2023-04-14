@@ -28,10 +28,10 @@
                 <ScrollView Grid.Row="1">
                     <StackLayout Orientation="Vertical" Padding="30,20,30,24" Spacing="10">
                         <Label FontSize="16" Padding="0,0,0,0">
-                            <Label.FormattedText>
+                            <Label.FormattedText >
                                 <FormattedString>
-                                    <FormattedString.Spans>
-                                        <Span Text="Utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu smartphone para futuras checagens."/>
+                                    <FormattedString.Spans >
+                                        <Span  Text="Utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu smartphone para futuras checagens."/>
                                     </FormattedString.Spans>
                                 </FormattedString>
                             </Label.FormattedText>

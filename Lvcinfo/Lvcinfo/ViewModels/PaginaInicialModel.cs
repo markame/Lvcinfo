@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Lvcinfo.Services;
+
 using Lvcinfo.Views;
 using Xamarin.Forms;
 

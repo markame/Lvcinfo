@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Lvcinfo.Model;
-using Lvcinfo.Services;
+
 using Lvcinfo.Views;
 namespace Lvcinfo.ViewModels
 {

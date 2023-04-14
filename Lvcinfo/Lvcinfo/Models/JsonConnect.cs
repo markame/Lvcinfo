@@ -1,6 +1,8 @@
 ﻿
 
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +14,23 @@ using Xamarin.Forms;
 
 namespace Lvcinfo.Models
 {
-    
+
     public class JsonConnect
     {
 
         public const string senderUrl = "https://lvcinfo.com.br/simple/LvcInfoRegistroReciver.php";
         public const string recivedUrl = "https://lvcinfo.com.br/simple/LvcInfoRegistroSender.php";
         public const string userlink = "https://lvcinfo.com.br/simple/LvcInfoUserLogin.php";
+      
 
-        public async Task  EnviadorMethod(string _Data_Notificacao, string _UF, string _Muni_Notificacao, string _Fonte_Notificacao,
+        public async Task EnviadorMethod(string _Data_Notificacao, string _UF, string _Muni_Notificacao, string _Fonte_Notificacao,
             string _Nome_Proprietario, string _Logradouro_Proprietario, int _Numero_Proprietario, string _Bairro_Proprietario,
-            string _Complemento_Proprietario,  string _Zona_Proprietario, string _Cpf_Proprietario, string _Nome_Animal, int _Sexo_Animal, string _Idade_Animal,
+            string _Complemento_Proprietario, string _Zona_Proprietario, string _Cpf_Proprietario, string _Nome_Animal, int _Sexo_Animal, string _Idade_Animal,
             string _Raca_Animal, string _Porte_Animal, string _Foto_Animal, int _Procedencia_Animal,
             int _Abrigo_Animal, int _Outro_Animal, string _Data_Sintoma, int _Emagrecimento_Sintoma, int _Alopecia_Sintoma, int _Hepatomegalia_Sintoma,
-             int _Apatia_Sintoma, int _Lesoes_Sintoma, int _Onicogrifose_Sintoma, int _Apetite_Sintoma ,int _Alteraocular_Sintoma,
+             int _Apatia_Sintoma, int _Lesoes_Sintoma, int _Onicogrifose_Sintoma, int _Apetite_Sintoma, int _Alteraocular_Sintoma,
              string _Id_Usuario, string _Outros_Sintoma, string _Data_DPP,
-              int _Exame_Rapido, string _Data_Elisa, int _Exame_Elisa, string _Data_Parasitologico, int _Exame_Parasitologico, string _Conclusao_Caso, int _Evolucao_Caso, string _Data_Eutanasia, int _Animal_Encoleirado)
+              int _Exame_Rapido, string _Data_Elisa, int _Exame_Elisa, string _Data_Parasitologico, int _Exame_Parasitologico, string _Conclusao_Caso, int _Evolucao_Caso, string _Data_Eutanasia, int _Animal_Encoleirado, string _Status_Caso)
         {
 
 
@@ -72,8 +75,8 @@ namespace Lvcinfo.Models
                 Exame_Parasitologico = _Exame_Parasitologico,
                 Evolucao_Caso = _Evolucao_Caso,
                 Data_Eutanasia = _Data_Eutanasia,
-                Animal_Encoleirado = _Animal_Encoleirado
-
+                Animal_Encoleirado = _Animal_Encoleirado,
+                Status_Caso = _Status_Caso
 
             };
             string jsonDataS = JsonConvert.SerializeObject(jsonRegistro);
@@ -101,14 +104,14 @@ namespace Lvcinfo.Models
 
         public async Task<object> Login(string _user, string _pass)
         {
-          
+
             var httpClientHandler = new HttpClientHandler();
 
             httpClientHandler.ServerCertificateCustomValidationCallback =
                 (message, certificate, chain, sslPolicyErrors) => true;
             using (var httpClient = new HttpClient(httpClientHandler))
             {
-              
+
                 var requestData = new { usuario = _user, senha = _pass };
                 var json = JsonConvert.SerializeObject(requestData);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -116,25 +119,20 @@ namespace Lvcinfo.Models
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 List<User> userList = JsonConvert.DeserializeObject<List<User>>(responseContent);
-                Preferences.Set("_Id", userList[0].Id_User);
+                Preferences.Set("_Id", userList[0].Id_User.ToString());
+
                 if (userList[0].UserName.Equals(_user)&&userList[0].Password.Equals(_pass))
                 {
-                   
-                    Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());
+
+                    _=Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());
                 }
                 return userList;
             }
         }
-
-
-
-
-
-
-
-
+      
+        }
     }
 
 
 
-}
+

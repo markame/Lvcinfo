@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lvcinfo.Views.OcorrenciaEncerrada"
-             Title="Registros encerrados">
+             Title="Investigações finalizadas">
 
 
     <ContentPage.Resources>
@@ -17,9 +17,49 @@
                     <ContentView Padding="0,15,0,15">
                         <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
                     </ContentView>
-
                 </StackLayout>
-              
+               
+                <CollectionView x:Name="listar_Registro" ItemsSource="{Binding bdregistros}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0,10,0,10">
+                                <StackLayout>
+                                    <Frame>
+                                        <StackLayout>
+                                        <StackLayout Padding="0,0,0,15" Orientation="Horizontal">
+                                            
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
+                                                    
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontAttributes="Bold" FontSize="Body" Text="Status da investigaçao:"/>
+                                                        <Label x:Name="situacao_animal" Text="{Binding Status_Caso}"/>
+                                                    </StackLayout>
+                                               
+                                               
+                                            </StackLayout>
+                                           
+                                        </StackLayout>
+                                            <Button Text="Checar investigação"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

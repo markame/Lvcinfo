@@ -47,7 +47,8 @@ namespace Lvcinfo.Models
         public int Animal_Encoleirado { get; set; }
         public int Evolucao_Caso { get; set; }
         public string Data_Eutanasia {get; set; }
-        
+        public string Status_Caso { get; set; }
+
 
     }
 }

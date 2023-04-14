@@ -8,6 +8,7 @@ using Plugin.Media.Abstractions;
 using Lvcinfo.Models;
 
 using Lvcinfo.Model;
+using Xamarin.Essentials;
 
 namespace Lvcinfo.Views
 {
@@ -37,6 +38,7 @@ namespace Lvcinfo.Views
         private int eparasita;
         private string conlusaocaso;
         private int evo;
+        private string status;
        
         private int sexo;
         private string dataeutanasia;
@@ -68,8 +70,6 @@ namespace Lvcinfo.Views
         private async void Salvar_Clicked(object sender, EventArgs e)
         {
 
-           
-
             try
             {
                 Radiostrigger();
@@ -80,16 +80,27 @@ namespace Lvcinfo.Views
                     qual_sintoma.Text = "SEM SINTOMAS ADICIONAIS";
                 }
 
-                if (evo == 4)
+                if ((evo == 1)|| (evo == 3)||(evo==4))
                 {
                     dataeutanasia = "ANIMAL NAO EUTANASIADO";
+                 
                 }
-               
+              
+                if ((evo == 1)|| (evo ==2)||(evo == 3)||(evo==4))
+                {
+                    status ="Finalizado";
+                }
+                else
+                {
+                    status = "Ativo";
+                }
+
+                var usuario = Preferences.Get("_Id", "");
                 await jsonconnect.EnviadorMethod(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text, fonte_Notificacao.Text,
                     nome_Proprietario.Text, logradouro_Proprietario.Text, int.Parse(numero_Proprietario.Text), bairro_Proprietario.Text,
-                    complemento_Proprietario.Text, zona_Proprietario.Text, cpf_Proprietario.Text, nome_Animal.Text, sexo, idade_Animal.Text, raca_Animal.Text, porte_Animal.Text
+                    complemento_Proprietario.Text, zona_Proprietario.Text, cpf_Proprietario.Text, nome_Animal.Text, sexo, idade_Animal.Text, raca_Animal.Text, porte_Animal.SelectedItem.ToString()
                     , fotoanimal, PROCEDENCIA, ABRIGO, PresencaAninal, data_Sintomas.Date.ToShortDateString(), emagrecimento, alopecia, hepato, apatia, lesao, onico,
-                     apetite, ocular , "1", qual_sintoma.Text, dataDPP.Date.ToShortDateString(), erapido, dataElisa.Date.ToShortDateString(), eelisa, dataParasitologico.Date.ToShortDateString(), eparasita, conlusaocaso, evo, dataeutanasia, encoleirado
+                     apetite, ocular , usuario, qual_sintoma.Text, dataDPP.Date.ToShortDateString(), erapido, dataElisa.Date.ToShortDateString(), eelisa, dataParasitologico.Date.ToShortDateString(), eparasita, conlusaocaso, evo, dataeutanasia, encoleirado, status
                     );
                 await DisplayAlert("Tudo ok por aqui.", "Cadasto do animal '" + nome_Animal.Text+ "' realizado com sucesso!", "OK");
                 ClearAll();
@@ -361,7 +372,7 @@ namespace Lvcinfo.Views
         public void ClearAll()
         {
 
-            uf.SelectedIndex = 9;
+            uf.SelectedItem = 9;
             muni_Notificacao.Text = "";
             fonte_Notificacao.Text = "";
             nome_Proprietario.Text = "";
@@ -374,7 +385,7 @@ namespace Lvcinfo.Views
             nome_Animal.Text="";
             idade_Animal.Text="";
             raca_Animal.Text="";
-            porte_Animal.Text="";
+            porte_Animal.SelectedItem=0;
             urbana.IsChecked=false;
             periurbana.IsChecked=false;
             rural.IsChecked=false;

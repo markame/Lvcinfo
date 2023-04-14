@@ -143,11 +143,24 @@
 
 
                             <Label Text="Idade:" FontSize="Body"/>
-                            <Entry Keyboard="Numeric" x:Name="idade_Animal"/>
+                            <Entry Keyboard="Text" x:Name="idade_Animal"/>
                             <Label Text="Raça:" FontSize="Body"/>
                             <Entry Keyboard="Text" x:Name="raca_Animal"/>
                             <Label Text="Porte:" FontSize="Body"/>
-                            <Entry Keyboard="Text" x:Name="porte_Animal"/>
+                           <!-- <Entry Keyboard="Text" x:Name="porte_Animal"/> -->
+                            <Picker TextColor="Black" Title="Selecione" TitleColor="DarkGreen" x:Name="porte_Animal">
+                                 <Picker.ItemsSource>
+                                        <x:Array  Type="{x:Type x:String}">
+
+                                        <x:String>Pequeno</x:String>
+                                        <x:String>Médio</x:String>
+                                        <x:String>Grande</x:String>
+                                        <x:String>Gigante</x:String>
+                                        
+                                    </x:Array>
+                                    </Picker.ItemsSource>
+                            </Picker>
+                                
                             <Label Text="Foto do animal:" FontSize="Large"/>
 
                             <Label Text="Enquadre bem o animal na fotografia."/>
