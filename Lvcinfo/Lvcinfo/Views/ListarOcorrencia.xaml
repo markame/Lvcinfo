@@ -11,7 +11,7 @@
                     </ContentPage.Resources>
                     <ContentPage.Content>
                         <ScrollView>
-        <StackLayout Spacing="3" Padding="15">
+        <StackLayout Spacing="3" Padding="0">
                 <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                         <ContentView Padding="0,15,0,15" VerticalOptions="FillAndExpand">
@@ -19,34 +19,48 @@
                         </ContentView>
                     </StackLayout>
                 </StackLayout>
-                <CollectionView x:Name="listar_Registro" ItemsSource="{Binding bdregistros}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+
+                <CollectionView x:Name="listar_RegistroAtivo" ItemsSource="{Binding bdregistros}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
                             <Frame Padding="0,10,0,10">
                                 <StackLayout>
                                     <Frame>
                                         <StackLayout>
-                                            <Label Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
-                                            
-                                            <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
-                                            <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
-                                            <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
-                                            <Label Text="Resultado do Teste Rapido:"/>
-                                            <Label x:Name="teste_rapido" Text="{Binding teste_rapido}"/>
-                                            <Label Text="Situação do Animal:"/>
-                                            <Label x:Name="situacao_animal" Text="{Binding Situacao_AnimalLabel}"/>
-                                            <Button ImageSource="edit.png" Text="Alterar"/>
+                                            <StackLayout Padding="0,0,0,15" Orientation="Horizontal">
+
+                                                <StackLayout Orientation="Vertical">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
+
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label FontAttributes="Bold" FontSize="Body" Text="Status da investigaçao:"/>
+                                                        <Label Text="{Binding Status_Caso}"/>
+                                                    </StackLayout>
+
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <Button Text="Checar investigação"/>
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>
                             </Frame>
-                            
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                
-            </CollectionView>
-        </StackLayout>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

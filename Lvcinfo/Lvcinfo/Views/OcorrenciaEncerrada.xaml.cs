@@ -21,7 +21,7 @@ namespace Lvcinfo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OcorrenciaEncerrada : ContentPage
     {
-        public const string getR = "https://lvcinfo.com.br/simple/LvcInfoGetRegistro.php";
+        public const string getR = "https://lvcinfo.com.br/simple/LvcInfoGetRegistroByStatus.php";
         JsonConnect jsonConnect = new JsonConnect();
 
         public OcorrenciaEncerrada()
@@ -57,7 +57,7 @@ namespace Lvcinfo.Views
                     var list = JsonConvert.DeserializeObject<List<Registro>>(responseContent);
                     ObservableCollection<Registro> listRegisto = new ObservableCollection<Registro>(list);
                     ((Registro)BindingContext).Status_Caso="Investigação encerrada";
-                    listar_Registro.ItemsSource = listRegisto;
+                    registro_Inves.ItemsSource = listRegisto;
                    
                 }
                 catch (Exception ex)
@@ -71,9 +71,23 @@ namespace Lvcinfo.Views
            
         }
 
-        
+        private void registro_Inves_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item == null)
+            {
+                return;
+            }
+            Registro registro = e.Item as Registro;
+            if (registro == null)
+            {
+                return;
+            }
+            Application.Current.MainPage.Navigation.PushAsync(new OcorrenciaEncerradasDatalhe(registro));
 
-       
+
+        }
+
     }
     }
+    
 

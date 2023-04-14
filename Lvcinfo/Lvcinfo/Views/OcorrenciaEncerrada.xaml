@@ -18,46 +18,27 @@
                         <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
                     </ContentView>
                 </StackLayout>
-               
-                <CollectionView x:Name="listar_Registro" ItemsSource="{Binding bdregistros}">
-                    <CollectionView.ItemTemplate>
+                <ListView x:Name="registro_Inves" 
+                          CachingStrategy="RecycleElement" 
+                          ItemTapped="registro_Inves_ItemTapped"
+                          ItemsSource="{Binding Registros}">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Frame Padding="0,10,0,10">
-                                <StackLayout>
-                                    <Frame>
-                                        <StackLayout>
-                                        <StackLayout Padding="0,0,0,15" Orientation="Horizontal">
-                                            
-                                            <StackLayout Orientation="Vertical">
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
-                                                    <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
-                                                    
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
-                                                    <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label FontAttributes="Bold" FontSize="Body" Text="Status da investigaçao:"/>
-                                                        <Label x:Name="situacao_animal" Text="{Binding Status_Caso}"/>
-                                                    </StackLayout>
-                                               
-                                               
-                                            </StackLayout>
-                                           
-                                        </StackLayout>
-                                            <Button Text="Checar investigação"/>
-                                        </StackLayout>
-                                    </Frame>
+                            <ViewCell>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
+                                <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
+                                <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
+                                <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
+                                <Label FontAttributes="Bold" FontSize="Body" Text="Status da investigaçao:"/>
+                                <Label Text="{Binding Status_Caso}"/>
+
                                 </StackLayout>
-                            </Frame>
-
-
+                            </ViewCell>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-
-                </CollectionView>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
 
                 
             </StackLayout>

@@ -12,7 +12,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout Spacing="3" Padding="5">
+        <StackLayout Spacing="3" Padding="0">
                 <StackLayout>
                 <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
                     <StackLayout >
