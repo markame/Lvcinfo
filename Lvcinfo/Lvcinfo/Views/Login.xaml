@@ -11,7 +11,7 @@
 
     <StackLayout  BackgroundColor="#ffffff">
 
-        <Image Source="LVCinfoBanner3.png" HeightRequest="150" HorizontalOptions="CenterAndExpand"
+        <Image Source="LVCINFO5.png" HeightRequest="150" HorizontalOptions="CenterAndExpand"
                Margin="0,50,0,0"/>
 
         <StackLayout Padding="30,0">
@@ -19,15 +19,13 @@
             <Entry x:Name="UserName" Keyboard="Numeric" Placeholder="Matrícula ou CRMV"
                    PlaceholderColor="#bdc7c9" BackgroundColor="#f4f6f7" Margin="0,10,0,0"/>
 
-            <Entry x:Name="Password" Keyboard="Text" Placeholder="Senha" IsPassword="True"
+            <Entry x:Name="Password" Keyboard="Numeric" Placeholder="Senha" IsPassword="True"
                    PlaceholderColor="#bdc7c9" BackgroundColor="#f4f6f7" Margin="0,10,0,0"/>
 
             <Button CornerRadius="20" VerticalOptions="Center" Text="Entrar" TextColor="#ffffff"
                     BackgroundColor="#199B2D" Clicked="Button_Login" Margin="0,20,0,0"/>
 
-            <Button CornerRadius="20" VerticalOptions="Center" Text="Fale Conosco" TextColor="#1877f2"
-                    BackgroundColor="#ffffff" BorderColor="#1877f2" BorderWidth="1"
-                    Margin="0,10,0,0"/>
+          
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
                          Margin="0,30,0,0">

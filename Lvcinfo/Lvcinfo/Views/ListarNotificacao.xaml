@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="Lvcinfo.Views.ListarRegistro"
+             Title="Investigações em andamento">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#199B2D</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="10">
+                <StackLayout BackgroundColor="{StaticResource Accent}"  HorizontalOptions="Fill">
+                    <ContentView Padding="0,15,0,15">
+                        <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
+                    </ContentView>
+                </StackLayout>
+                <ListView HasUnevenRows="True" x:Name="registro_Inves" 
+                          CachingStrategy="RecycleElement" 
+                          ItemTapped="registro_Inves_ItemTapped"
+                          ItemsSource="{Binding Registros}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <Frame CornerRadius="5" BorderColor="Black">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
+                                            <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Nome_Animal}" VerticalOptions="Center"/>
+                                            <Label FontAttributes="Bold" FontSize="Body" Text="Status da investigaçao:"/>
+                                            <Label TextColor="Red" Text="{Binding Status_Caso}"/>
+                                        </StackLayout>
+                                    </Frame>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

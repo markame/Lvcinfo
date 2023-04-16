@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lvcinfo.Android", "Lvcinfo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lvcinfo.iOS", "Lvcinfo\Lvcinfo.iOS\Lvcinfo.iOS.csproj", "{0F6E7B06-FA7B-4D09-971E-4FBF35F73AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lvcinfo", "Lvcinfo\Lvcinfo\Lvcinfo.csproj", "{BEDDE2B0-961A-48A6-891F-D91030DD8141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lvcinfo", "Lvcinfo\Lvcinfo\Lvcinfo.csproj", "{BEDDE2B0-961A-48A6-891F-D91030DD8141}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

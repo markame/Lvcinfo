@@ -6,7 +6,7 @@ namespace Lvcinfo.Models
 {
     public class Registro
     {
-      
+        public int idRegistro { get; set; }
         public string Data_Notificacao { get; set; }
         public string UF { get; set; }
         public string Muni_Notificacao { get; set; }
@@ -48,6 +48,9 @@ namespace Lvcinfo.Models
         public int Evolucao_Caso { get; set; }
         public string Data_Eutanasia {get; set; }
         public string Status_Caso { get; set; }
+        public double Latitude { get; set;}
+        public double Longitude { get; set; }
+        public int Obito_Conclusao { get; set;}
 
 
     }

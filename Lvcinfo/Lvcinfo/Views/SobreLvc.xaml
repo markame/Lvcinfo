@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lvcinfo.Views.SobreLvc"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#035A10"
+            Title="Sobre a LVC"
+    BarTextColor="White"
+    android:TabbedPage.BarItemColor="#66FFFFFF"
+    android:TabbedPage.BarSelectedItemColor="#199B2D">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#199B2D</Color>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <TabbedPage.Children>
+        <ContentPage Title="O que é LVC?">
+            <StackLayout  Orientation="Vertical" >
+                <StackLayout Spacing="3" Padding="0">
+                    <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+
+                        <StackLayout >
+                            <ContentView Padding="0,15,0,15" >
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="O que Leishmaniose Visceral Canina?"/>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+                   
+                </StackLayout>
+                <ScrollView>
+                <StackLayout Spacing="2" Padding="10">
+                <Frame>
+                    <StackLayout >
+                                <Label HorizontalOptions="Center" FontSize="Large" Text="Principais fontes alimentares sanguíneas"/>
+                                <Image Source="Ilustrativo1" Margin="0,0,10,0"/>
+                                <Label FontSize="Body"  HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="A Leishmaniose Visceral Canina (LVC) é uma doença transmitida pela fêmea infectada do mosquito flebotomíneo. O parasita é transmitido através da picada durante a alimentação por sangue de animais infectados. A fêmea do mosquito se alimenta não apenas de cães, que são os principais reservatórios do parasita, mas também de outros animais, como roedores, raposas e gambás.
+
+As fêmeas dos mosquitos flebotomíneos são conhecidos por se alimentarem de uma variedade de animais, incluindo humanos. Eles se alimentam de sangue para obter nutrientes. O sangue contém proteínas que são essenciais para o crescimento e desenvolvimento dos ovos das fêmeas.
+
+Embora a transmissão da LVC ocorra principalmente através da picada do mosquito infectado em animais infectados, os mosquitos também podem se alimentar de sangue humano, transmitindo a doença para os seres humanos." 
+LineBreakMode="WordWrap" />
+                    </StackLayout>
+                </Frame>
+                </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage>
+
+        <ContentPage Title="Os sintomas">
+            <StackLayout  Orientation="Vertical" >
+                <StackLayout Spacing="3" Padding="0">
+                    <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+
+                        <StackLayout >
+                            <ContentView Padding="0,15,0,15" >
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="Os sintomas mais comuns em cães"/>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+                <ScrollView>
+                <StackLayout Spacing="2" Padding="10">
+                    <Frame>
+                        <StackLayout>
+                                <Label HorizontalOptions="Center" FontSize="Large" Text="Fique atento"/>
+                                <Image Source="Ilustrativo2" Margin="0,0,10,0"/>
+                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Os sintomas da LVC podem variar dependendo do estágio da doença. Nos estágios iniciais, o animal pode apresentar sintomas vagos como perda de peso, falta de apetite, apatia e fraqueza. Além disso, o cão infectado pode desenvolver feridas na pele que não cicatrizam e, em alguns casos, podem sangrar. A presença de febre também pode ser um sinal da doença.
+
+Conforme a doença progride, os sintomas da LVC em cães podem piorar. O animal pode apresentar vômitos, diarreia, aumento do volume abdominal e inchaço nas pernas. Além disso, a LVC também pode levar à anemia, o que pode causar fraqueza e falta de ar.
+
+Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para respirar, mudanças no comportamento e convulsões. À medida que a doença avança, o sistema imunológico do cão é comprometido, o que pode deixá-lo suscetível a outras doenças e infecções.
+
+É importante lembrar que os sintomas da LVC em cães podem ser semelhantes aos de outras doenças, e apenas um veterinário pode fazer um diagnóstico preciso. Se o seu cão apresentar algum dos sintomas mencionados acima, é importante levá-lo a um veterinário imediatamente para avaliação e tratamento. A detecção precoce é fundamental para aumentar as chances de sucesso no tratamento da LVC."/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+        </ContentPage>
+
+        <ContentPage Title="O tratamento">
+            <StackLayout  Orientation="Vertical" >
+                <StackLayout Spacing="3" Padding="0">
+                    <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+
+                        <StackLayout >
+                            <ContentView Padding="0,15,0,15" >
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="O Tratamento da doença"/>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+                <ScrollView>
+                <StackLayout Spacing="3" Padding="20">
+                    <Frame>
+                        <StackLayout>
+                            <Label HorizontalOptions="Center" FontSize="Large" Text="Medicamentos administrados"/>
+                            <Image Source="Ilustrativo2" Margin="0,0,10,0"/>
+                            <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="O tratamento da Leishmaniose Visceral Canina (LVC) é realizado com medicamentos específicos para combater o parasita causador da doença, geralmente antimonial pentavalente, alilamina ou anfotericina B.
+
+O tratamento é prolongado e pode durar de 30 a 90 dias, dependendo da gravidade da infecção. Durante o tratamento, o animal deve ser monitorado por um veterinário para avaliar a eficácia do medicamento e verificar se há efeitos colaterais.
+
+Além disso, o tratamento deve ser acompanhado por medidas de suporte, como a administração de fluidos e suplementos alimentares, já que a doença pode afetar a saúde do animal, deixando-o debilitado e desnutrido.
+
+É importante lembrar que o tratamento da LVC não garante a cura definitiva da doença e que o animal pode se tornar um portador assintomático do parasita, podendo transmitir a doença para outros animais ou mesmo para humanos.
+
+Por isso, a prevenção é fundamental para controlar a disseminação da doença, através do controle da população de mosquitos, uso de repelentes em cães e eliminação de locais que possam servir como criadouros para os mosquitos.
+
+Caso o tutor identifique sintomas de LVC em seu animal, é fundamental buscar ajuda veterinária imediatamente para iniciar o tratamento o mais breve possível e evitar complicações mais graves da doença." LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+        </ContentPage>
+        <ContentPage Title="A prevenção">
+            <StackLayout  Orientation="Vertical" >
+                <StackLayout Spacing="3" Padding="0">
+                    <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+
+                        <StackLayout >
+                            <ContentView Padding="0,15,0,15" >
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="Como previnir?"/>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout Spacing="3" Padding="20">
+                    <Frame>
+                        <StackLayout>
+                            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae lobortis enim, ultricies molestie libero. Nam tincidunt urna eu est aliquet, in consequat justo tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada quam eget nisl porta dignissim. Vivamus turpis felis, sagittis et eleifend eget, egestas quis dui. Ut dictum est elit, id pretium eros convallis ut. Nunc iaculis lacinia nulla. Integer pulvinar eros a quam mollis, vitae pellentesque magna pellentesque. Nunc porttitor mauris dui, id interdum tortor ultrices ac. In ullamcorper nec enim quis vestibulum. Nulla scelerisque risus nec diam gravida, at interdum magna venenatis. Integer finibus elit quis magna accumsan convallis. Sed vitae ligula a massa varius aliquet. Sed sed tellus eu elit rhoncus vestibulum in vel ligula. Aliquam pulvinar vulputate felis, et semper mauris suscipit ut. Curabitur aliquet vitae est et faucibus." LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+        </ContentPage>
+       
+    </TabbedPage.Children>
+</TabbedPage>

@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="Lvcinfo.Views.OcorrenciaEncerradasDatalhe"
+            
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#199B2D</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="0">
+                <StackLayout>
+                    <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+                        <StackLayout >
+                            <ContentView Padding="0,15,0,15" >
+                                <Image  Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="50" />
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <!-- começo dos boxes de entrada de dados -->
+                    <!-- Box Dados Gerais-->
+                    <Label Text="Dados gerais" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Data da notificação:" VerticalOptions="Center" FontSize="Body"/>
+                                <DatePicker x:Name="data_Notificacao" />
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="UF:" VerticalOptions="Center" FontSize="Body" />
+                                <Picker x:Name="uf"
+        Title="Selecione"
+        TitleColor="Green">
+
+
+                                    <Picker.ItemsSource>
+                                        <x:Array  Type="{x:Type x:String}">
+
+                                            <x:String>AC</x:String>
+                                            <x:String>AL</x:String>
+                                            <x:String>AM</x:String>
+                                            <x:String>AP</x:String>
+                                            <x:String>BA</x:String>
+                                            <x:String>CE</x:String>
+                                            <x:String>DF</x:String>
+                                            <x:String>ES</x:String>
+                                            <x:String>GO</x:String>
+                                            <x:String>MA</x:String>
+                                            <x:String>MG</x:String>
+                                            <x:String>MS</x:String>
+                                            <x:String>MT</x:String>
+                                            <x:String>PA</x:String>
+                                            <x:String>PB</x:String>
+                                            <x:String>PI</x:String>
+                                            <x:String>PR</x:String>
+                                            <x:String>RJ</x:String>
+                                            <x:String>RN</x:String>
+                                            <x:String>RO</x:String>
+                                            <x:String>RR</x:String>
+                                            <x:String>RS</x:String>
+                                            <x:String>SC</x:String>
+                                            <x:String>SE</x:String>
+                                            <x:String>SP</x:String>
+                                            <x:String>TO</x:String>
+
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Municipio de notificação:" FontSize="Body"></Label>
+                                <Entry Keyboard="Text" x:Name="muni_Notificacao"/>
+                                <Label Text="Fonte notificadora:" FontSize="Body"></Label>
+                                <Entry Keyboard="Text" x:Name="fonte_Notificacao"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+                    <!--Box Dados Propreitarios -->
+                    <Label Text="Dados do tutor" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <Label Text="Nome:" FontSize="Body"/>
+                            <Entry Keyboard="Text" x:Name="nome_Proprietario"/>
+                            <Label Text="CPF:" FontSize="Body"/>
+                            <Entry Keyboard="Numeric" x:Name="cpf_Proprietario"/>
+
+
+                            <Label  VerticalOptions="End" Text="Logradouro:" FontSize="Body" />
+                            <Entry Keyboard="Text" Grid.Column="1" VerticalOptions="Fill" x:Name="logradouro_Proprietario"/>
+
+                            <Label VerticalOptions="End" Grid.Row="1" FontSize="Body" Text="Número:" />
+                            <Entry Keyboard="Numeric" Grid.Column="1" Grid.Row="1" VerticalOptions="Fill" x:Name="numero_Proprietario"/>
+
+                            <Label VerticalOptions="End" Grid.Row="2" FontSize="Body" Text="Bairro:" />
+                            <Entry Keyboard="Text" Grid.Column="1" Grid.Row="2" VerticalOptions="Fill" x:Name="bairro_Proprietario"/>
+
+                            <Label VerticalOptions="End" Grid.Row="4" FontSize="Body" Text="Complemento:" />
+                            <Entry Keyboard="Text" Grid.Column="1" Grid.Row="4" VerticalOptions="Fill" x:Name="complemento_Proprietario"/>
+
+                            <Label VerticalOptions="End" Grid.Row="6" FontSize="Body" Text="Zona:" />
+                            <Entry Keyboard="Text" Grid.Column="1" Grid.Row="6" VerticalOptions="Fill" x:Name="zona_Proprietario"/>
+
+                        </StackLayout>
+                    </Frame>
+                    <!--Box Dados do Animal -->
+                    <Label Text="Dados do animal" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <Label Text="Nome do animal:" FontSize="Body"/>
+                            <Entry Keyboard="Text" x:Name="nome_Animal"/>
+
+                            <Label Text="Sexo:" FontSize="Body"/>
+                            <Grid Margin="5,5,5,25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="0.6*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+
+                                <Label VerticalOptions="Center" Grid.Row="1" FontSize="Body" Text="Macho"/>
+                                <RadioButton x:Name="SexoM" Value="1" Grid.Column="1" Grid.Row="1"/>
+
+                                <Label VerticalOptions="Center" Grid.Row="1" Grid.Column="2" FontSize="Body" Text="Fêmea"/>
+                                <RadioButton x:Name="SexoF" Value="2" Grid.Column="3" Grid.Row="1"/>
+
+                                <!-- 1 para Macho
+                                 2 para Fêmea
+                               -->
+
+                            </Grid>
+
+
+
+                            <Label Text="Idade:" FontSize="Body"/>
+                            <Entry Keyboard="Text" x:Name="idade_Animal"/>
+                            <Label Text="Raça:" FontSize="Body"/>
+                            <Entry Keyboard="Text" x:Name="raca_Animal"/>
+                            <Label Text="Porte:" FontSize="Body"/>
+                            <!-- <Entry Keyboard="Text" x:Name="porte_Animal"/> -->
+                            <Picker TextColor="Black" Title="Selecione" TitleColor="DarkGreen" x:Name="porte_Animal">
+                                <Picker.ItemsSource>
+                                    <x:Array  Type="{x:Type x:String}">
+
+                                        <x:String>Pequeno</x:String>
+                                        <x:String>Médio</x:String>
+                                        <x:String>Grande</x:String>
+                                        <x:String>Gigante</x:String>
+
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                            <Label Text="Foto do animal:" FontSize="Large"/>
+
+                            <Label x:Name="Info_foto"/>
+                               
+                            <Image WidthRequest="602" HeightRequest="550" x:Name="imagem_Animal"/>
+                            
+
+
+                        </StackLayout>
+                    </Frame>
+                    <!-- box localização-->
+                    <Label Text="Localização do Animal" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame BorderColor="Black" CornerRadius="10">
+                        <StackLayout >
+                            <Label FontSize="Body" Text="O animal está na coordenada:" HorizontalOptions="Center"/>
+                            <Label  HorizontalOptions="Center" x:Name="coordenada" />
+
+                            <Button Text="Mostrar Localização" Clicked="Button_Localizacao"/>
+                        </StackLayout>
+                    </Frame>
+                    <!--fim box localização-->
+                    <!--Box Dados epidemiologicos -->
+                    <Label Text="Dados epidemiológicos" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <Label Text="Procedência do animal:" FontSize="Body" FontAttributes="Bold"/>
+                            <Grid Margin="5,5,5,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+
+                                <Label VerticalOptions="Center" Grid.Row="1" FontSize="Body" Text="Área urbana" />
+                                <RadioButton x:Name="urbana" Value="1" Grid.Column="1" Grid.Row="1"/>
+                                <Label  VerticalOptions="Center" Grid.Row="2" FontSize="Body" Text="Área periurbana" />
+                                <RadioButton x:Name="periurbana" Value="2" Grid.Column="1" Grid.Row="2"/>
+                                <Label VerticalOptions="Center" Grid.Row="3" FontSize="Body" Text="Área rural" />
+                                <RadioButton x:Name="rural" Value="3" Grid.Column="1" Grid.Row="3"/>
+                                <!-- 1 para urbana
+                                 2 para periurbana
+                                 3 para rural-->
+
+                            </Grid>
+                            <Label Text="Abrigo noturno:" FontSize="Body" FontAttributes="Bold"/>
+                            <Grid Margin="5,5,5,5"  RadioButtonGroup.GroupName="{Binding Abrigo}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Label VerticalOptions="Center" Grid.Row="1" FontSize="Body" Text="Domiciliado" />
+                                <RadioButton x:Name="domiciliado" Value="1" Grid.Column="1" Grid.Row="1"/>
+                                <Label VerticalOptions="Center" Grid.Row="2" FontSize="Body" Text="Semi-domiciliado" />
+                                <RadioButton x:Name="semi" Value="2" Grid.Column="1" Grid.Row="2"/>
+                                <!-- 1 para Domiciliado
+                                 2 para Semi Domiciliado
+                                -->
+
+                            </Grid>
+                            <Label Text="Presença de outros animais:" FontSize="Body" FontAttributes="Bold"/>
+                            <Grid Margin="5,5,5,5" RadioButtonGroup.GroupName="{Binding Outros}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="0.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Label VerticalOptions="Center" Grid.Row="1" FontSize="Body" Text="Não" />
+                                <RadioButton x:Name="PresencaNao" Value="0" Grid.Column="1" Grid.Row="1"/>
+                                <Label VerticalOptions="Center" Grid.Row="2" FontSize="Body" Text="Sim" />
+                                <RadioButton x:Name="Presencasim" Value="1" Grid.Column="1" Grid.Row="2"/>
+                            </Grid>
+
+                        </StackLayout>
+
+
+                    </Frame>
+
+                    <!--Box Dados  Clínicos -->
+                    <Label Text="Dados clínicos" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <Label Text="Data dos primeiros sintomas:" FontSize="Body"/>
+                            <DatePicker x:Name="data_Sintomas"/>
+                            <StackLayout>
+                                <Label Text="Manifestações clínicas:" FontSize="Body" FontAttributes="Bold"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Emagrecimento" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="emagrecimento_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Queda de pelo" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="alopecia_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Aumento do fígado/baço" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="hepatomegalia_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Apatía" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="apatia_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Lesões de Pele" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="lesoes_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Unhas grandes" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="onicogrifose_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Perda de apetite" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="apetite_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Body" Text="Secreção ocular" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="alteraoculares_Animal"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Outros" FontSize="Body" VerticalOptions="Center"/>
+                                    <CheckBox x:Name="outro_sintoma"/>
+                                </StackLayout>
+                                <Entry IsVisible="false" Keyboard="Text" x:Name="qual_sintoma" Placeholder="Quais?" />
+
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <!--Box Dados laboratoriais -->
+                    <Label Text="Dados laboratoriais" FontSize="Medium" FontAttributes="Bold"/>
+                    <Frame CornerRadius="10" BorderColor="Black">
+
+                        <StackLayout>
+
+                            <Label Text="Exames realizados:" FontAttributes="Bold" FontSize="Body"/>
+                            <Frame Margin="0,0,0,8" CornerRadius="8" >
+                                <StackLayout>
+
+                                    <StackLayout   Orientation="Horizontal">
+
+                                        <Label FontAttributes="Bold" Text="Teste rapido DPP:" VerticalOptions="Center" FontSize="Body"/>
+                                        <DatePicker x:Name="dataDPP"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding rapido}">
+
+                                        <Label  FontSize="Body" Text="Positivo" />
+                                        <RadioButton x:Name="reagenteR"/>
+                                        <Label FontSize="Body" Text="Negativo" />
+                                        <RadioButton x:Name="nreagenteR"/>
+                                        <Label  FontSize="Body" Text="Não realizado" />
+                                        <RadioButton x:Name="nrealizadoR"/>
+                                        <!--P = 1
+                                    N = 0
+                                    NR = 2-->
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame Margin="0,0,0,8" CornerRadius="8" >
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" Text="Diagnóstico sorológico (ELISA):" FontSize="Body"/>
+                                        <DatePicker x:Name="dataElisa"/>
+                                    </StackLayout>
+
+
+                                    <Grid RadioButtonGroup.GroupName="{Binding elisa}" Margin="0,20,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="20" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="40" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <Label FontSize="Body" Grid.Row="0" Text="Positivo"/>
+                                        <RadioButton x:Name="Elisa_Positivo"  Grid.Column="2"/>
+
+                                        <Label FontSize="Body" Grid.Column="3"  Text="Negativo"/>
+                                        <RadioButton x:Name="Elisa_Negativo"   Grid.Column="4"/>
+
+                                        <Label FontSize="Body" Grid.Row="2" Text="Indeterminado"/>
+                                        <RadioButton x:Name="Elisa_Indeterminado"  Grid.Column="2"  Grid.Row="2"/>
+
+                                        <Label Grid.Row="2" Grid.Column="3" FontSize="Body" Text="Não Realizado"/>
+                                        <RadioButton x:Name="Elisa_NaoRealizado"  Grid.Row="2" Grid.Column="4"/>
+
+                                    </Grid>
+                                    <!--P = 1
+                                    N = 0
+                                    NR = 2
+                                    I = 3-->
+
+                                </StackLayout>
+                            </Frame>
+                            <Frame>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" Text="Diagnóstico parasitológico:" FontSize="Body"/>
+                                        <DatePicker x:Name="dataParasitologico"/>
+
+                                    </StackLayout>
+                                    <StackLayout>
+
+
+                                        <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding parasita}">
+
+                                            <Label FontSize="Body" VerticalOptions="Center" Text="Positivo" />
+                                            <RadioButton x:Name="reagenteP"/>
+                                            <Label FontSize="Body" Text="Negativo" VerticalOptions="Center"/>
+                                            <RadioButton x:Name="nreagenteP"/>
+                                            <Label FontSize="Body" Text="Não realizado" VerticalOptions="Center"/>
+                                            <RadioButton x:Name="nrealizadoP"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <!--P = 1
+                                    N = 0
+                                    NR = 2-->
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                    </Frame>
+                    <!--box encoleirado-->
+                    <Frame CornerRadius="10" BorderColor="Black">
+
+                        <StackLayout>
+                            <Label Text="O animal foi encoleirado (deltametrina 4%):" FontSize="Body"/>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton  x:Name="Encoleirado_S"/>
+                                <Label x:Name="labelB" VerticalOptions="Center" Text="Sim"/>
+                                <RadioButton x:Name="Encoleirado_N"/>
+                                <Label x:Name="labelC" VerticalOptions="Center" Text="Não"/>
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <!--começo do box conclusao-->
+                    <Frame CornerRadius="10" BorderColor="Black">
+                        <StackLayout>
+                            <Label Text="Conclusao do caso:" FontSize="Body"/>
+                            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding resultado}">
+                                <Label FontSize="Body"    Text="Confirmado" />
+                                <RadioButton x:Name="confirmado" />
+                                <Label FontSize="Body" Text="Descartado" />
+                                <RadioButton x:Name="descartado"/>
+
+                            </StackLayout>
+                            <Frame>
+                                <StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding evo}">
+                                        <RadioButton x:Name="rb_Tratamento" IsEnabled="false"/>
+                                        <Label x:Name="label_Tra" Text="Animal em tratamento" IsEnabled="false"/>
+                                        <RadioButton x:Name="rb_Recolhido" IsEnabled="false"/>
+                                        <Label x:Name="label_Enco" Text="Recolhido para eutanásia" IsEnabled="false"/>
+                                        <RadioButton  x:Name="rb_NEutanasiado"  IsEnabled="false"/>
+
+                                        <Label x:Name="label_Eu" Text="Não recolhido" IsEnabled="false"/>
+
+                                        <!-- 1 em tratamento
+                                            2 recolhido
+                                            3 nao recolhido
+                                            4 descartado-->
+
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label VerticalOptions="Center"  x:Name="label_Data" Text="Data da eutanásia" IsEnabled="false"/>
+                                        <DatePicker x:Name="pic_Eutanasia" IsEnabled="false"/>
+                                    </StackLayout>
+                                    <Label FontSize="Body" Text="Tipo de óbito do animal"/>
+                                    <Picker TextColor="Black" Title="Selecione" TitleColor="DarkGreen" x:Name="Obito_Animal">
+                                        <Picker.ItemsSource>
+                                            <x:Array  Type="{x:Type x:String}">
+
+                                                <x:String>Óbito por LVC</x:String>
+                                                <x:String>Óbito por outro Motivo</x:String>
+
+
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- fim dos boxes de entrada de dados -->
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

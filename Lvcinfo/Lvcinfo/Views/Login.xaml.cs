@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Lvcinfo
@@ -17,7 +18,7 @@ namespace Lvcinfo
         public MainPage()
         {
             InitializeComponent();
-           
+            
 
         }
 
@@ -36,5 +37,6 @@ namespace Lvcinfo
             }
           
         }
+        
     }
 }

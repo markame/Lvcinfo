@@ -1,32 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lvcinfo.Views.PaginaInicial"
-              xmlns:vm="clr-namespace:Lvcinfo.ViewModels"
-             Title="Pagina Inicial">
-
-    <ContentPage.BindingContext>
-        <vm:PaginaInicialModel/>
-    </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <StackLayout>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <StackLayout BackgroundColor="#006400" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                            <Image Source="LVCinfoBanner.png" VerticalOptions="Center" HeightRequest="64" />
-                        </ContentView>
-                    </StackLayout>
-                </StackLayout>
-                
-                
-                <ScrollView Grid.Row="1">
-                    <StackLayout Orientation="Vertical" Padding="30,20,30,24" Spacing="10">
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="Lvcinfo.Views.PaginaInicial"
+          xmlns:vm="clr-namespace:Lvcinfo.ViewModels"
+          Title="Pagina Inicial"
+           xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#035A10"
+    BarTextColor="White"
+    android:TabbedPage.BarItemColor="#66FFFFFF"
+    android:TabbedPage.BarSelectedItemColor="#199B2D">
+    <TabbedPage.Children>
+        <!-- Aba de Investigações -->
+        <ContentPage Title="Menu principal">
+            <ContentPage.BindingContext>
+                <vm:PaginaInicialModel/>
+            </ContentPage.BindingContext>
+            <ContentPage.Content>
+                <ScrollView>
+                    
+                    
+                    <StackLayout Orientation="Vertical" Padding="10,10,20,24" Spacing="0">
+                        <StackLayout>
+                            <Image Source="LVCINFO5.png" HeightRequest="150" HorizontalOptions="CenterAndExpand"
+               Margin="0,25,0,25"/>
+                        </StackLayout>
                         <Label FontSize="16" Padding="0,0,0,0">
                             <Label.FormattedText >
                                 <FormattedString>
@@ -38,36 +35,66 @@
                         </Label>
 
 
-                        <Grid Margin="20,35,25,20">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="0.5*" />
-                            </Grid.ColumnDefinitions>
+                        <Grid Margin="50,50,25,20" RowSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="80" />
-                                <RowDefinition Height="80" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Button  Text="Nova Notificação"  Command="{Binding novaNotificacaoCommand}" />
-                            <Button Grid.Column="1"
-                                  Text="Investigações em Andamento" Command="{Binding listarRegistroCommand}" />
-                            <Button Grid.Row="1"
-                                  Text="Investigações Finalizadas" Command="{Binding listarRegistroEncerradoCommand}" />
-                            <Button Text="Suporte" Grid.Column="1"
-                                  Grid.Row="1"/>
+                            <StackLayout Orientation="Vertical" Grid.Row="0">
+                                <Button  Text="Nova Notificação"  Command="{Binding novaNotificacaoCommand}" />
+                                <Button Text="Investigações em Andamento" Command="{Binding listarRegistroCommand}" />
+                                <Button Text="Investigações Finalizadas" Command="{Binding listarRegistroEncerradoCommand}" />
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                
+                            </StackLayout>
                         </Grid>
 
+                    </StackLayout>
+                </ScrollView>
+            </ContentPage.Content>
+        </ContentPage>
+
+        <!-- Aba de Ações -->
+        <ContentPage Title="Suporte">
+            <ContentPage.BindingContext>
+                <vm:PaginaInicialModel/>
+            </ContentPage.BindingContext>
+            <ContentPage.Content>
+                <ScrollView>
+                    <StackLayout Orientation="Vertical" Padding="30,10,30,24" Spacing="10">
                         <StackLayout>
-
-                     
-
+                            <Image Source="LVCINFO5.png" HeightRequest="150" HorizontalOptions="CenterAndExpand"
+               Margin="0,25,0,25"/>
                         </StackLayout>
+                        <Label FontSize="16" Padding="0,0,0,0">
+                            <Label.FormattedText >
+                                <FormattedString>
+                                    <FormattedString.Spans >
+                                        <Span  Text="Por meio dessa aba, é possível entrar em contato com a equipe de suporte técnico para sanar dúvidas, reportar erros ou problemas, solicitar melhorias ou sugerir novas funcionalidades. Além disso, a aba de suporte também fornece informações úteis sobre o combate à Leishmaniose Visceral Canina, tais como medidas de prevenção, tratamento e controle da doença."/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid Margin="50,50,25,20" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Orientation="Vertical" Grid.Row="0">
+                                <Button  Text="Sobre a LVC"  Command="{Binding sobreLvcCommmand}" />
+                                <Button Text="Fale conosco " Command="{Binding }" />
+                                <Button Text="Suporte" Command="{Binding }" />
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
 
+                            </StackLayout>
+                        </Grid>
 
 
                     </StackLayout>
                 </ScrollView>
-            </Grid>
-
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+            </ContentPage.Content>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

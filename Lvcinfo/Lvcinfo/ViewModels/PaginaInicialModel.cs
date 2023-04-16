@@ -12,16 +12,21 @@ namespace Lvcinfo.ViewModels
     {
         public Command novaNotificacaoCommand { get; set; }
         public Command listarRegistroCommand { get; set; }
-
+        public Command sobreLvcCommmand { get; set; }
         public Command listarRegistroEncerradoCommand { get; set; }
         public PaginaInicialModel()
         {
             novaNotificacaoCommand = new Command(async () => await novaNotificacaoClick());
             listarRegistroCommand = new Command(async () => await listarRegistroClick());
             listarRegistroEncerradoCommand = new Command(async () => await listarRegistroEncerradoClick());
+            sobreLvcCommmand = new Command(async() => await sobreLvcClick());
 
         }
 
+        private async Task sobreLvcClick()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new SobreLvc());
+        }
         private async Task listarRegistroEncerradoClick()
         {
           Application.Current.MainPage.Navigation.PushAsync(new OcorrenciaEncerrada());
@@ -34,7 +39,8 @@ namespace Lvcinfo.ViewModels
 
         private async Task novaNotificacaoClick()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new NovaRegistro());
+
+            await Application.Current.MainPage.Navigation.PushAsync(new NovaNotificacao());
         }
 
        
