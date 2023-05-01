@@ -100,7 +100,7 @@ Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para resp
                     <Frame>
                         <StackLayout>
                             <Label HorizontalOptions="Center" FontSize="Large" Text="Medicamentos administrados"/>
-                            <Image Source="Ilustrativo2" Margin="0,0,10,0"/>
+                            <Image Source="Ilustrativo3" Margin="0,0,10,0"/>
                             <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="O tratamento da Leishmaniose Visceral Canina (LVC) é realizado com medicamentos específicos para combater o parasita causador da doença, geralmente antimonial pentavalente, alilamina ou anfotericina B.
 
 O tratamento é prolongado e pode durar de 30 a 90 dias, dependendo da gravidade da infecção. Durante o tratamento, o animal deve ser monitorado por um veterinário para avaliar a eficácia do medicamento e verificar se há efeitos colaterais.
