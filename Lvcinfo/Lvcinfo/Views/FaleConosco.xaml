@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lvcinfo.Views.FaleConosco"
+             Title="Fale Conosco">
+
+    <ContentPage.Resources>
+        <Color x:Key="Accent">#199B2D</Color>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Spacing="3" Padding="10">
+                <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+                    <ContentView Padding="0,15,0,15">
+                        <Image Source="LVCinfoBanner" VerticalOptions="Center" HeightRequest="50"/>
+                    </ContentView>
+                </StackLayout>
+                <StackLayout >
+                    <Frame BorderColor="Black" CornerRadius="10" Margin="4">
+                        <StackLayout>
+                            <Label FontSize="20" HorizontalTextAlignment="Start" Text="Contato"/>
+                            <Label Text="Nossa equipe está totalmente pronta para atender suas dúvidas! "/>
+                            <Label Text="Você pode enviar um email com duvidas, problemas e sugestões sobre o App iremos responder o mais rápido possivel!"/>
+                            <Frame>
+                                <StackLayout VerticalOptions="Start">
+                                    <StackLayout>
+                                        <Label Text=" Seu nome:"/>
+                                        <Entry Keyboard="Email" WidthRequest="100" x:Name="nome"/>
+                                        <Label Text=" Seu e-mail:"/>
+                                        <Entry Keyboard="Email" WidthRequest="100" x:Name="email"/>
+                                        <Label Text="Digite aqui suas duvidas, problemas ou sugestões sobre o App:"/>
+                                        <Frame BorderColor="Black">
+                                        <Editor Keyboard="Plain" AutoSize="TextChanges"/>
+                                            
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <Button Text="Enviar"/>
+                                </StackLayout>
+                                
+                            </Frame>
+                            
+                        </StackLayout>
+                       
+                        
+                    </Frame>
+                </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -23,7 +23,7 @@
 
                         <StackLayout >
                             <ContentView Padding="0,15,0,15" >
-                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="O que Leishmaniose Visceral Canina?"/>
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="O que é Leishmaniose Visceral Canina?"/>
                             </ContentView>
                         </StackLayout>
                     </StackLayout>
@@ -35,11 +35,7 @@
                     <StackLayout >
                                 <Label HorizontalOptions="Center" FontSize="Large" Text="Principais fontes alimentares sanguíneas"/>
                                 <Image Source="Ilustrativo1" Margin="0,0,10,0"/>
-                                <Label FontSize="Body"  HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="A Leishmaniose Visceral Canina (LVC) é uma doença transmitida pela fêmea infectada do mosquito flebotomíneo. O parasita é transmitido através da picada durante a alimentação por sangue de animais infectados. A fêmea do mosquito se alimenta não apenas de cães, que são os principais reservatórios do parasita, mas também de outros animais, como roedores, raposas e gambás.
-
-As fêmeas dos mosquitos flebotomíneos são conhecidos por se alimentarem de uma variedade de animais, incluindo humanos. Eles se alimentam de sangue para obter nutrientes. O sangue contém proteínas que são essenciais para o crescimento e desenvolvimento dos ovos das fêmeas.
-
-Embora a transmissão da LVC ocorra principalmente através da picada do mosquito infectado em animais infectados, os mosquitos também podem se alimentar de sangue humano, transmitindo a doença para os seres humanos." 
+                                <Label FontSize="Body"  HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="A Leishmaniose Visceral Canina (LVC), popularmente conhecida como calazar, é uma doença infecciosa grave causada por parasitas do gênero Leishmania. O parasita é transmitido ao cão e ao ser humano através da picada da fêmea infectada do flebotomíneo durante o repasto sanguíneo. A fêmea se alimenta não só de cães, que são os principais reservatórios do parasita, mas também de outros animais, como galinhas, porcos, cavalos, bovinos, gambás e roedores, além de humanos. Elas se alimentam de sangue para obter nutrientes essenciais para o crescimento e desenvolvimento dos ovos." 
 LineBreakMode="WordWrap" />
                     </StackLayout>
                 </Frame>
@@ -62,7 +58,7 @@ LineBreakMode="WordWrap" />
 
                 </StackLayout>
                 <ScrollView>
-                <StackLayout Spacing="2" Padding="10">
+                <StackLayout Spacing="3" Padding="10">
                     <Frame>
                         <StackLayout>
                                 <Label HorizontalOptions="Center" FontSize="Large" Text="Fique atento"/>
@@ -71,9 +67,7 @@ LineBreakMode="WordWrap" />
 
 Conforme a doença progride, os sintomas da LVC em cães podem piorar. O animal pode apresentar vômitos, diarreia, aumento do volume abdominal e inchaço nas pernas. Além disso, a LVC também pode levar à anemia, o que pode causar fraqueza e falta de ar.
 
-Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para respirar, mudanças no comportamento e convulsões. À medida que a doença avança, o sistema imunológico do cão é comprometido, o que pode deixá-lo suscetível a outras doenças e infecções.
-
-É importante lembrar que os sintomas da LVC em cães podem ser semelhantes aos de outras doenças, e apenas um veterinário pode fazer um diagnóstico preciso. Se o seu cão apresentar algum dos sintomas mencionados acima, é importante levá-lo a um veterinário imediatamente para avaliação e tratamento. A detecção precoce é fundamental para aumentar as chances de sucesso no tratamento da LVC."/>
+Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para respirar, mudanças no comportamento e convulsões. À medida que a doença avança, o sistema imunológico do cão é comprometido, o que pode deixá-lo suscetível a outras doenças e infecções."/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
@@ -101,17 +95,8 @@ Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para resp
                         <StackLayout>
                             <Label HorizontalOptions="Center" FontSize="Large" Text="Medicamentos administrados"/>
                             <Image Source="Ilustrativo3" Margin="0,0,10,0"/>
-                            <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="O tratamento da Leishmaniose Visceral Canina (LVC) é realizado com medicamentos específicos para combater o parasita causador da doença, geralmente antimonial pentavalente, alilamina ou anfotericina B.
-
-O tratamento é prolongado e pode durar de 30 a 90 dias, dependendo da gravidade da infecção. Durante o tratamento, o animal deve ser monitorado por um veterinário para avaliar a eficácia do medicamento e verificar se há efeitos colaterais.
-
-Além disso, o tratamento deve ser acompanhado por medidas de suporte, como a administração de fluidos e suplementos alimentares, já que a doença pode afetar a saúde do animal, deixando-o debilitado e desnutrido.
-
-É importante lembrar que o tratamento da LVC não garante a cura definitiva da doença e que o animal pode se tornar um portador assintomático do parasita, podendo transmitir a doença para outros animais ou mesmo para humanos.
-
-Por isso, a prevenção é fundamental para controlar a disseminação da doença, através do controle da população de mosquitos, uso de repelentes em cães e eliminação de locais que possam servir como criadouros para os mosquitos.
-
-Caso o tutor identifique sintomas de LVC em seu animal, é fundamental buscar ajuda veterinária imediatamente para iniciar o tratamento o mais breve possível e evitar complicações mais graves da doença." LineBreakMode="WordWrap" />
+                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Atualmente, existe apenas um medicamento registrado pelo Ministério de Agricultura Pecuária e Abastecimento (MAPA) para tratamento da LVC e que está sendo comercializado no Brasil, o Milteforan, cujo princípio ativo é a miltefosina. 
+Ressalta-se que o tratamento dos cães não se configura como uma medida de saúde pública para controle da doença e, portanto, trata-se única e exclusivamente de uma escolha do tutor do animal, de caráter individual. Dessa forma, é imprescindível que se cumpra o protocolo de tratamento descrito na rotulagem do produto, respeitando-se a necessidade de reavaliação clínica, laboratorial e parasitológica periódica pelo médico veterinário, a necessidade de realização de novo ciclo de tratamento, quando indicado, e a recomendação de utilização de produtos para repelência do flebotomíneo." LineBreakMode="WordWrap" />
                         </StackLayout>
                     </Frame>
                 </StackLayout>
@@ -137,13 +122,15 @@ Caso o tutor identifique sintomas de LVC em seu animal, é fundamental buscar aj
                     <Frame>
                         <StackLayout>
                             <Label FontSize="Body"  Text="A prevenção é a melhor forma de evitar a Leishmaniose Visceral Canina (LVC). Para evitar que seu cão seja infectado, é importante adotar algumas medidas simples e eficazes:" LineBreakMode="WordWrap" />
-                            <Label FontSize="Body"  Text="1.Controle a população de mosquitos: os mosquitos flebotomíneos são os responsáveis pela transmissão da LVC. Por isso, é importante adotar medidas para reduzir a população desses insetos em sua região. Mantenha o ambiente limpo, elimine possíveis criadouros de mosquitos, como água parada em recipientes, e use repelentes para cães."/>
-                            <Label FontSize="Body"  Text="2.Use repelentes para cães: existem vários repelentes disponíveis no mercado, que podem ser aplicados diretamente na pele do cão ou em coleiras antiparasitárias. Os repelentes ajudam a afastar os mosquitos e a reduzir o risco de infecção."/>
-                            <Label FontSize="Body"  Text="3.Mantenha seu cão saudável: cães saudáveis têm um sistema imunológico mais forte e são menos propensos a contrair a LVC. Mantenha o calendário de vacinação em dia, faça exames de rotina e leve seu cão ao veterinário regularmente."/>
-                            <Label FontSize="Body"  Text="4.Proteja sua casa: mantenha sua casa limpa e livre de insetos, principalmente durante a noite, quando os mosquitos estão mais ativos. Use telas nas janelas e portas para evitar a entrada dos insetos."/>
-                            <Label FontSize="Body"  Text="5.Fique atento aos sintomas: a LVC pode ser tratada com sucesso se for diagnosticada precocemente. Fique atento aos sintomas, como perda de peso, falta de apetite, febre, feridas na pele, aumento do volume do abdômen e fraqueza."/>
+                                <Label FontSize="Body"  Text="1. Manejo ambiental, por meio da limpeza de quintais, terrenos e praças públicas, a fim de alterar as condições do meio que propiciem o estabelecimento de criadouros de formas imaturas do vetor."/>
+                                <Label FontSize="Body"  Text="2. Limpeza periódica de abrigos de animais, como canis, galinheiros, chiqueiros e currais."/>
+                                <Label FontSize="Body"  Text="3. Evitar deixar solo úmido e matéria orgânica exposta."/>
+                                <Label FontSize="Body"  Text="4. Realizar poda periódica de árvores, uma vez que os flebotomíneos costumam viver em locais sombreados."/>
+                                <Label FontSize="Body"  Text="5. Uso de coleiras repelentes impregnadas com deltametrina a 4% em cães, principalmente em áreas com focos da doença."/>
+                                <Label FontSize="Body"  Text="6. Uso de telas em canis infividuais ou coletivos."/>
+                                <Label FontSize="Body"  Text="7. Informar à Unidade de Vigilância de Zoonoses (UVZ) quando houver suspeita de cão com a doença."/>
 
-                        </StackLayout>
+                            </StackLayout>
                     </Frame>
                 </StackLayout>
                 </ScrollView>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lvcinfo.Views.SobreApp"
+             Title="Sobre o App">
+    <ContentPage.Resources>
+        <Color x:Key="Accent">#199B2D</Color>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="3" Padding="10">
+                <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
+                    <ContentView Padding="0,15,0,15">
+                        <Image Source="LVCinfoBanner" VerticalOptions="Center" HeightRequest="50"/>
+                    </ContentView>
+                </StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label FontAttributes="Bold" Text="Sobre o App:" FontSize="20"/>
+                        <Label FontSize="15" Text="O Lvcinfo é um aplicativo desenvolvido para auxiliar no registro e gerenciamento de informações sobre animais com leishmaniose visceral. Através do uso da tecnologia, o Lvcinfo simplifica a gestão dos casos de leishmaniose, uma doença parasitária que afeta cães e humanos."/>
+                        <Label FontSize="15" Text="A aplicação permite o cadastro de animais com leishmaniose, fornecendo informações relevantes sobre cada caso, como nome, idade, sexo, raça, entre outros. Além disso, é possível adicionar informações sobre o diagnóstico, tratamento e evolução do animal."/>
+                        <Label FontSize="15" Text="A facilidade de uso da aplicação é um dos seus principais diferenciais, tornando-a uma opção viável para profissionais de saúde que trabalham com animais com leishmaniose. O aplicativo é intuitivo e de fácil navegação, o que possibilita o rápido registro e acesso aos dados dos animais cadastrados."/>
+                        <Label FontSize="15" Text="O Lvcinfo é um aplicativo indispensável para profissionais que desejam gerenciar casos de leishmaniose de forma eficiente e organizada. Com a tecnologia, é possível reduzir o tempo gasto em processos manuais e ter mais tempo para se dedicar aos cuidados com os animais."/>
+
+                    </StackLayout>
+                </Frame>
+                
+                <Frame>
+                    <StackLayout>
+                        <Label FontSize="17" FontAttributes="Bold" Text="Dados sobre o App:"/>
+                        <Label x:Name="Build"/>
+                        <Label x:Name="Versao"/>
+                        <Label FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Text="Lvc-Info direitos de uso do App e Api reservados."/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
