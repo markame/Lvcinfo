@@ -126,19 +126,27 @@ Caso o tutor identifique sintomas de LVC em seu animal, é fundamental buscar aj
 
                         <StackLayout >
                             <ContentView Padding="0,15,0,15" >
-                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="Como previnir?"/>
+                                <Label TextColor="White" HorizontalOptions="Center" FontSize="Title" Text="Como prevenir?"/>
                             </ContentView>
                         </StackLayout>
                     </StackLayout>
 
                 </StackLayout>
-                <StackLayout Spacing="3" Padding="20">
+                <ScrollView>
+                <StackLayout Spacing="2" Padding="10">
                     <Frame>
                         <StackLayout>
-                            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae lobortis enim, ultricies molestie libero. Nam tincidunt urna eu est aliquet, in consequat justo tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada quam eget nisl porta dignissim. Vivamus turpis felis, sagittis et eleifend eget, egestas quis dui. Ut dictum est elit, id pretium eros convallis ut. Nunc iaculis lacinia nulla. Integer pulvinar eros a quam mollis, vitae pellentesque magna pellentesque. Nunc porttitor mauris dui, id interdum tortor ultrices ac. In ullamcorper nec enim quis vestibulum. Nulla scelerisque risus nec diam gravida, at interdum magna venenatis. Integer finibus elit quis magna accumsan convallis. Sed vitae ligula a massa varius aliquet. Sed sed tellus eu elit rhoncus vestibulum in vel ligula. Aliquam pulvinar vulputate felis, et semper mauris suscipit ut. Curabitur aliquet vitae est et faucibus." LineBreakMode="WordWrap" />
+                            <Label FontSize="Body"  Text="A prevenção é a melhor forma de evitar a Leishmaniose Visceral Canina (LVC). Para evitar que seu cão seja infectado, é importante adotar algumas medidas simples e eficazes:" LineBreakMode="WordWrap" />
+                            <Label FontSize="Body"  Text="1.Controle a população de mosquitos: os mosquitos flebotomíneos são os responsáveis pela transmissão da LVC. Por isso, é importante adotar medidas para reduzir a população desses insetos em sua região. Mantenha o ambiente limpo, elimine possíveis criadouros de mosquitos, como água parada em recipientes, e use repelentes para cães."/>
+                            <Label FontSize="Body"  Text="2.Use repelentes para cães: existem vários repelentes disponíveis no mercado, que podem ser aplicados diretamente na pele do cão ou em coleiras antiparasitárias. Os repelentes ajudam a afastar os mosquitos e a reduzir o risco de infecção."/>
+                            <Label FontSize="Body"  Text="3.Mantenha seu cão saudável: cães saudáveis têm um sistema imunológico mais forte e são menos propensos a contrair a LVC. Mantenha o calendário de vacinação em dia, faça exames de rotina e leve seu cão ao veterinário regularmente."/>
+                            <Label FontSize="Body"  Text="4.Proteja sua casa: mantenha sua casa limpa e livre de insetos, principalmente durante a noite, quando os mosquitos estão mais ativos. Use telas nas janelas e portas para evitar a entrada dos insetos."/>
+                            <Label FontSize="Body"  Text="5.Fique atento aos sintomas: a LVC pode ser tratada com sucesso se for diagnosticada precocemente. Fique atento aos sintomas, como perda de peso, falta de apetite, febre, feridas na pele, aumento do volume do abdômen e fraqueza."/>
+
                         </StackLayout>
                     </Frame>
                 </StackLayout>
+                </ScrollView>
             </StackLayout>
 
         </ContentPage>
