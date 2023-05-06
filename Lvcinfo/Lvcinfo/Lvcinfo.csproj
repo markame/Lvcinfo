@@ -29,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ListarNotificacao.xaml.cs">
-      <DependentUpon>ListarNotificacao.xaml</DependentUpon>
+    <Compile Update="Views\ListarNotificacaoAtiva.xaml.cs">
+      <DependentUpon>ListarNotificacaoAtiva.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
