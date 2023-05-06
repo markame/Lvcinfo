@@ -36,7 +36,7 @@ namespace Lvcinfo.Views
         }
         protected async override void OnAppearing()
         {
-
+            await Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
             var usuario = Preferences.Get("_Id", "");
 
             var httpClientHandler = new HttpClientHandler();
@@ -54,15 +54,19 @@ namespace Lvcinfo.Views
 
                 try
                 {
-                    var list = JsonConvert.DeserializeObject<List<Registro>>(responseContent);
-                    ObservableCollection<Registro> listRegisto = new ObservableCollection<Registro>(list);
-                    ((Registro)BindingContext).Status_Caso="Investigação encerrada";
-                    registro_Inves.ItemsSource = listRegisto;
                    
+                
+                    var list = JsonConvert.DeserializeObject<List<Registro>>(responseContent);
+                  
+                    ObservableCollection<Registro> listRegisto = new ObservableCollection<Registro>(list);
+                   
+                    registro_Inves.ItemsSource = listRegisto;
+
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Erro", "Você não possui investigações finalizadas", "cancel");
+                    DisplayAlert("Erro", "Você não possui investigações finalizadas"+ex, "cancel");
                 }
             }
 
@@ -82,9 +86,11 @@ namespace Lvcinfo.Views
             {
                 return;
             }
+            
             _=Navigation.PushAsync(new OcorrenciaEncerradasDatalhe(registro));
 
-
+          
+           
         }
 
     }

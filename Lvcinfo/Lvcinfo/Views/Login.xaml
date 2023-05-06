@@ -16,7 +16,7 @@
 
         <StackLayout Padding="30,0">
 
-            <Entry x:Name="UserName" Keyboard="Numeric" Placeholder="Matrícula ou CRMV"
+            <Entry x:Name="UserName" Keyboard="Numeric" Placeholder="Matrícula"
                    PlaceholderColor="#bdc7c9" BackgroundColor="#f4f6f7" Margin="0,10,0,0"/>
 
             <Entry x:Name="Password" Keyboard="Numeric" Placeholder="Senha" IsPassword="True"

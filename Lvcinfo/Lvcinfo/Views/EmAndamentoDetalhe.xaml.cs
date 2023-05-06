@@ -47,11 +47,15 @@ namespace Lvcinfo.Views
         double Longitude;
         public EmAndamentoDetalhe(Registro registro)
         {
+
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
             Title = "Investição do Animal "+registro.Nome_Animal;
        
             InitializeComponent();
 
             IsEnabledd();
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
             Latitude = registro.Latitude;
             Longitude = registro.Longitude;
 
@@ -80,6 +84,7 @@ namespace Lvcinfo.Views
             idade_Animal.Text = registro.Idade_Animal;
             raca_Animal.Text = registro.Raca_Animal;
             porte_Animal.SelectedItem = registro.Porte_Animal;
+            fotoanimal = registro.Foto_Animal;
 
             getString(registro.Foto_Animal,registro.Nome_Animal);
            
@@ -209,10 +214,7 @@ namespace Lvcinfo.Views
             {
                 Elisa_NaoRealizado.IsChecked = true;
             }
-            if (registro.Exame_Elisa ==3)
-            {
-                Elisa_Indeterminado.IsChecked = true;
-            }
+          
             if (registro.Exame_Elisa == 0)
             {
                 Elisa_Negativo.IsChecked = true;
@@ -268,9 +270,30 @@ namespace Lvcinfo.Views
 
             }
 
-             
+            if (registro.Evolucao_Caso == 5)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
 
-         
+            }
+            if (registro.Evolucao_Caso == 6)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
+            Application.Current.MainPage.Navigation.PopModalAsync();
+
 
 
         }
@@ -285,6 +308,10 @@ namespace Lvcinfo.Views
             label_Enco.IsEnabled = true;
             label_Data.IsEnabled = true;
             label_Eu.IsEnabled = true;
+            rb_ObitoLvc.IsEnabled = true;
+            lvcobito.IsEnabled = true;
+            rb_Obitooutros.IsEnabled = true;
+            causa.IsEnabled = true;
         }
 
 
@@ -315,11 +342,7 @@ namespace Lvcinfo.Views
             {
                 eelisa = 2;
             }
-            if (Elisa_Indeterminado.IsChecked)
-            {
-                eelisa= 3;
-            }
-
+         
             if (reagenteP.IsChecked)
             {
                 eparasita = 1;
@@ -345,6 +368,14 @@ namespace Lvcinfo.Views
                 evo =3;
                 dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
 
+            }
+            if (rb_ObitoLvc.IsChecked)
+            {
+                evo = 5;
+            }
+            if (rb_Obitooutros.IsChecked)
+            {
+                evo = 6;
             }
         }
 
@@ -479,7 +510,7 @@ namespace Lvcinfo.Views
 
                 }
 
-                if ((evo == 1)|| (evo ==2)||(evo == 3)||(evo==4))
+                if ((evo == 1)|| (evo ==2)||(evo == 3)||(evo==4)||(evo==5)||(evo==6))
                 {
                     status ="Finalizado";
                 }
@@ -504,50 +535,54 @@ namespace Lvcinfo.Views
 
         }
 
+        
+
         private void descartado_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            label_Tra.IsEnabled = false;
             rb_Tratamento.IsEnabled = false;
-            rb_Tratamento.IsEnabled = false;
-            label_Enco.IsEnabled = false;
-            rb_Recolhido.IsEnabled =false;
-            label_Eu.IsEnabled = false;
+            rb_Recolhido.IsEnabled = false;
             rb_NEutanasiado.IsEnabled = false;
-            label_Data.IsEnabled  = false;
-            pic_Eutanasia.IsEnabled  = false;
+            pic_Eutanasia.IsEnabled = false;
+            label_Tra.IsEnabled = false;
+            label_Enco.IsEnabled = false;
+            label_Data.IsEnabled = false;
+            label_Eu.IsEnabled = false;
+            rb_ObitoLvc.IsEnabled = false;
+            lvcobito.IsEnabled = false;
+            rb_Obitooutros.IsEnabled = false;
+            causa.IsEnabled = false;
             evo = 4;
 
         }
 
         public async void getString(string _idImage, string _nomeAnimal)
         {
-            var httpClientHandler = new HttpClientHandler();
-
-            httpClientHandler.ServerCertificateCustomValidationCallback =
-                (message, certificate, chain, sslPolicyErrors) => true;
-            using (var httpClient = new HttpClient(httpClientHandler))
+            try
             {
+                var httpClientHandler = new HttpClientHandler();
 
-                var requestData = new { id_Image = _idImage };
-                var json = JsonConvert.SerializeObject(requestData);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(getByid, content);
-                if (response.IsSuccessStatusCode)
+                httpClientHandler.ServerCertificateCustomValidationCallback =
+                    (message, certificate, chain, sslPolicyErrors) => true;
+                using (var httpClient = new HttpClient(httpClientHandler))
                 {
+
+                    var requestData = new { id_Image = _idImage };
+                    var json = JsonConvert.SerializeObject(requestData);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await httpClient.PostAsync(getByid, content);
+
                     var responseContent = await response.Content.ReadAsStringAsync();
                     List<ImageB64> image64List = JsonConvert.DeserializeObject<List<ImageB64>>(responseContent);
                     string im = image64List[0].B64Hash.ToString();
-                        Info_foto.Text= "Foto do Animal "+_nomeAnimal;
-                        byte[] Base64Stream = Convert.FromBase64String(im);
-                        imagem_Animal.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
-                   
+                    Info_foto.Text= "Foto do Animal "+_nomeAnimal;
+                    byte[] Base64Stream = Convert.FromBase64String(im);
+                    imagem_Animal.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
                 }
-                else
-                {
-                    imagem_Animal.Source = ImageSource.FromFile("AnimalNotFound.png");
-                }
-                
+
+                }catch (Exception ex) {
+                imagem_Animal.Source = ImageSource.FromFile("AnimalNotFound.png");
             }
+
         }
 
         private async void Button_Localizacao(object sender, EventArgs e)

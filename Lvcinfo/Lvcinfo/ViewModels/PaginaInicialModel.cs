@@ -30,30 +30,42 @@ namespace Lvcinfo.ViewModels
 
         private async Task sobreLvcClick()
         {
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage.Navigation.PushAsync(new SobreLvc());
         }
         private async Task listarRegistroEncerradoClick()
         {
-          Application.Current.MainPage.Navigation.PushAsync(new OcorrenciaEncerrada());
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushAsync(new OcorrenciaEncerrada());
         }
 
         private  async Task listarRegistroClick()
         {
-           Application.Current.MainPage.Navigation.PushAsync(new ListarRegistro());
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
+            Application.Current.MainPage.Navigation.PushAsync(new ListarRegistro());
         }
 
         private async Task novaNotificacaoClick()
         {
-
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+          
             await Application.Current.MainPage.Navigation.PushAsync(new NovaNotificacao());
+            Application.Current.MainPage.Navigation.PopModalAsync();
         }
 
         private async Task faleConoscoClick()
         {
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage.Navigation.PushAsync(new FaleConosco());
         }
          private async Task sobreAppClick()
         {
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
+            Application.Current.MainPage.Navigation.PopModalAsync();
             Application.Current.MainPage.Navigation.PushAsync(new SobreApp());
         }
 

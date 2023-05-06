@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
              x:Class="Lvcinfo.Views.NovaNotificacao"
-             Title="Novo Notificação"
+             Title="Nova Notificação"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -91,9 +92,16 @@
                         <Label Text="Nome:" FontSize="Body"/>
                         <Entry Keyboard="Text" x:Name="nome_Proprietario"/>
                             <Label Text="CPF:" FontSize="Body"/>
-                            <Entry Keyboard="Numeric" x:Name="cpf_Proprietario"/>
+                            <!--<Entry Keyboard="Numeric" x:Name="cpf_Proprietario"/>-->
 
-                          
+                            <Entry x:Name="cpf_Proprietario" >
+                                <Entry.Behaviors>
+                                    <behaviorPack:CPFValidationBehavior />
+                                    <behaviorPack:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                                </Entry.Behaviors>
+                            </Entry>
+
+
                             <Label  VerticalOptions="End" Text="Logradouro:" FontSize="Body" />
                             <Entry Keyboard="Text" Grid.Column="1" VerticalOptions="Fill" x:Name="logradouro_Proprietario"/>
 
@@ -402,7 +410,7 @@
                             <Frame>
                                 <StackLayout>
                           
-                            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding evo}">
+                            <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="evo">
                                         <RadioButton x:Name="rb_Tratamento" IsEnabled="false"/>
                                         <Label x:Name="label_Tra" Text="Animal em tratamento" IsEnabled="false"/>
                                         <RadioButton x:Name="rb_Recolhido" CheckedChanged="rb_Recolhido_CheckedChanged" IsEnabled="false"/>
@@ -410,13 +418,8 @@
                                         <RadioButton  x:Name="rb_NEutanasiado"  IsEnabled="false"/>
 
                                         <Label x:Name="label_Eu" Text="Não recolhido" IsEnabled="false"/>
-                                        
-
-
-
-
                                     </StackLayout>
-
+                                   
                                     <StackLayout Orientation="Horizontal">
                                     <Label VerticalOptions="Center"  x:Name="label_Data" Text="Data da eutanásia" IsEnabled="false"/>
                             <DatePicker x:Name="pic_Eutanasia" IsEnabled="false"/>

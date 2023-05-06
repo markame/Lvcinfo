@@ -111,7 +111,10 @@ namespace Lvcinfo.Views
                 {
                     status = "Ativo";
                 }
-
+                if (fotoanimal==null)
+                {
+                    fotoanimal = "0";
+                }
                 if (nome_Proprietario.Text != null || nome_Animal.Text != null || cpf_Proprietario.Text != null) {
                     var usuario = Preferences.Get("_Id", "");
                     await jsonconnect.EnviadorMethod(data_Notificacao.Date.ToShortDateString(), uf.SelectedItem.ToString(), muni_Notificacao.Text, fonte_Notificacao.Text,

@@ -50,7 +50,7 @@ namespace Lvcinfo.Models
         public string Status_Caso { get; set; }
         public double Latitude { get; set;}
         public double Longitude { get; set; }
-        public int Obito_Conclusao { get; set;}
+       
 
 
     }

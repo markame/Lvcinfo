@@ -24,11 +24,11 @@
                             <Image Source="LVCINFO5.png" HeightRequest="150" HorizontalOptions="CenterAndExpand"
                Margin="0,25,0,25"/>
                         </StackLayout>
-                        <Label FontSize="16" Padding="0,0,0,0">
+                        <Label  FontSize="16" Padding="0,0,0,0">
                             <Label.FormattedText >
                                 <FormattedString>
                                     <FormattedString.Spans >
-                                        <Span  Text="Utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu smartphone para futuras checagens."/>
+                                        <Span x:Name="Bvinada"/>
                                     </FormattedString.Spans>
                                 </FormattedString>
                             </Label.FormattedText>

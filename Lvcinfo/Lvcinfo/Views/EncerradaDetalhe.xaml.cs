@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,14 @@ namespace Lvcinfo.Views
         double Longitude;
         public OcorrenciaEncerradasDatalhe(Registro registro)
         {
-            Title = "Investição do Animal "+registro.Nome_Animal;
+
             InitializeComponent();
+            Latitude = registro.Latitude;
+            Longitude = registro.Longitude;
+            Title = "Investição do Animal "+registro.Nome_Animal;
+           
             IsEnabledd();
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
             coordenada.Text = Latitude+", "+ Longitude;
             data_Notificacao.Date = DateTime.ParseExact(registro.Data_Notificacao, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             uf.SelectedItem = registro.UF;
@@ -171,9 +177,6 @@ namespace Lvcinfo.Views
             if (registro.Exame_Elisa == 2)
             {
                 Elisa_NaoRealizado.IsChecked = true;    
-            }if(registro.Exame_Elisa ==3)
-            {
-                Elisa_Indeterminado.IsChecked = true;
             }
             if (registro.Exame_Elisa == 0)
             {
@@ -228,6 +231,29 @@ namespace Lvcinfo.Views
                 pic_Eutanasia.IsVisible = false;
 
             }
+            if (registro.Evolucao_Caso == 5)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
+            if (registro.Evolucao_Caso == 6)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
+            Application.Current.MainPage.Navigation.PopModalAsync();
         }
 
         public void IsEnabledd()
@@ -273,39 +299,49 @@ namespace Lvcinfo.Views
             dataElisa.IsEnabled = false;
             Elisa_Positivo.IsEnabled = false;
             Elisa_NaoRealizado.IsEnabled = false;
-            Elisa_Indeterminado.IsEnabled = false;
+            
         }
 
 
         public async void getString(string _idImage, string _nomeAnimal)
         {
-            var httpClientHandler = new HttpClientHandler();
-
-            httpClientHandler.ServerCertificateCustomValidationCallback =
-                (message, certificate, chain, sslPolicyErrors) => true;
-            using (var httpClient = new HttpClient(httpClientHandler))
+            try
             {
+              
+                    var httpClientHandler = new HttpClientHandler();
 
-                var requestData = new { id_Image = _idImage };
-                var json = JsonConvert.SerializeObject(requestData);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync(getByid, content);
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = await response.Content.ReadAsStringAsync();
-                    List<ImageB64> image64List = JsonConvert.DeserializeObject<List<ImageB64>>(responseContent);
-                    string im = image64List[0].B64Hash.ToString();
-                    Info_foto.Text= "Foto do Animal "+_nomeAnimal;
-                    byte[] Base64Stream = Convert.FromBase64String(im);
-                    imagem_Animal.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                    httpClientHandler.ServerCertificateCustomValidationCallback =
+                        (message, certificate, chain, sslPolicyErrors) => true;
+                    using (var httpClient = new HttpClient(httpClientHandler))
+                    {
 
-                }
-                else
-                {
-                    imagem_Animal.Source = ImageSource.FromFile("AnimalNotFound.png");
-                }
+                        var requestData = new { id_Image = _idImage };
+                        var json = JsonConvert.SerializeObject(requestData);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+                        var response = await httpClient.PostAsync(getByid, content);
 
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        List<ImageB64> image64List = JsonConvert.DeserializeObject<List<ImageB64>>(responseContent);
+                        string im = image64List[0].B64Hash.ToString();
+                        Info_foto.Text= "Foto do Animal "+_nomeAnimal;
+                        byte[] Base64Stream = Convert.FromBase64String(im);
+                        imagem_Animal.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                    }
+                
+                
+                }catch (Exception ex) {
+
+                imagem_Animal.Source = ImageSource.FromFile("AnimalNotFound.png");
             }
+
+
+            
+               
+               
+                    
+                
+
+            
         }
         private async void Button_Localizacao(object sender, EventArgs e)
         {

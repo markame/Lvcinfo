@@ -18,12 +18,15 @@ namespace Lvcinfo.Views
         public PaginaInicial()
         {
             InitializeComponent();
+            string nomeUsuario = Preferences.Get("_Name", "");
+            
+            Bvinada.Text = "Olá "+nomeUsuario+" utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu smartphone para futuras checagens.";
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-            var isFirstRun = Preferences.Get("isFirstRun", true);
+            var isFirstRun = Preferences.Get("isFirstRun", false);
             if (!isFirstRun)
             {
                 // Marca a flag indicando que o aplicativo já foi iniciado pelo menos uma vez
-                Preferences.Set("isFirstRun", false);
+                Preferences.Set("isFirstRun", true);
 
                 // Chama o método para verificar e solicitar permissão de localização
                 Task.Run(async () =>

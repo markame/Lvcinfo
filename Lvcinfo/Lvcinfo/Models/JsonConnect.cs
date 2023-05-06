@@ -127,7 +127,7 @@ namespace Lvcinfo.Models
 
         public async Task<object> Login(string _user, string _pass)
         {
-
+            Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
             var httpClientHandler = new HttpClientHandler();
 
             httpClientHandler.ServerCertificateCustomValidationCallback =
@@ -143,14 +143,16 @@ namespace Lvcinfo.Models
 
                 List<User> userList = JsonConvert.DeserializeObject<List<User>>(responseContent);
                 Preferences.Set("_Id", userList[0].Id_User.ToString());
+                Preferences.Set("_Name", userList[0].Name.ToString());
 
                 if (userList[0].UserName.Equals(_user)&&userList[0].Password.Equals(_pass))
                 {
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoadingPage());
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
+
+                    Application.Current.MainPage.Navigation.PopModalAsync();
                     _=Application.Current.MainPage.Navigation.PushAsync(new PaginaInicial());
                 }
                 return userList;
+              
             }
         }
 
