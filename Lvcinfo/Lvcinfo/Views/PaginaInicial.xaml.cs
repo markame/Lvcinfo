@@ -19,11 +19,11 @@ namespace Lvcinfo.Views
         {
             InitializeComponent();
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-            var isFirstRun = Preferences.Get("isFirstRun", true);
+            var isFirstRun = Preferences.Get("isFirstRun", false);
             if (!isFirstRun)
             {
                 // Marca a flag indicando que o aplicativo já foi iniciado pelo menos uma vez
-                Preferences.Set("isFirstRun", false);
+                Preferences.Set("isFirstRun", true);
 
                 // Chama o método para verificar e solicitar permissão de localização
                 Task.Run(async () =>

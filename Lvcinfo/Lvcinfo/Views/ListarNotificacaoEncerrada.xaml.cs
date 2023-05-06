@@ -56,13 +56,12 @@ namespace Lvcinfo.Views
                 {
                     var list = JsonConvert.DeserializeObject<List<Registro>>(responseContent);
                     ObservableCollection<Registro> listRegisto = new ObservableCollection<Registro>(list);
-                    ((Registro)BindingContext).Status_Caso="Investigação encerrada";
                     registro_Inves.ItemsSource = listRegisto;
-                   
+
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Erro", "Você não possui investigações finalizadas", "cancel");
+                    DisplayAlert("Erro", "Você não possui investigações finalizadas"+ex, "cancel");
                 }
             }
 

@@ -171,9 +171,6 @@ namespace Lvcinfo.Views
             if (registro.Exame_Elisa == 2)
             {
                 Elisa_NaoRealizado.IsChecked = true;    
-            }if(registro.Exame_Elisa ==3)
-            {
-                Elisa_Indeterminado.IsChecked = true;
             }
             if (registro.Exame_Elisa == 0)
             {
@@ -228,6 +225,28 @@ namespace Lvcinfo.Views
                 pic_Eutanasia.IsVisible = false;
 
             }
+            if (registro.Evolucao_Caso == 5)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
+            if (registro.Evolucao_Caso == 6)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
         }
 
         public void IsEnabledd()
@@ -273,7 +292,7 @@ namespace Lvcinfo.Views
             dataElisa.IsEnabled = false;
             Elisa_Positivo.IsEnabled = false;
             Elisa_NaoRealizado.IsEnabled = false;
-            Elisa_Indeterminado.IsEnabled = false;
+            
         }
 
 

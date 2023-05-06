@@ -90,7 +90,7 @@ Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para resp
 
                 </StackLayout>
                 <ScrollView>
-                <StackLayout Spacing="3" Padding="20">
+                <StackLayout Spacing="3" Padding="10">
                     <Frame>
                         <StackLayout>
                             <Label HorizontalOptions="Center" FontSize="Large" Text="Medicamentos administrados"/>

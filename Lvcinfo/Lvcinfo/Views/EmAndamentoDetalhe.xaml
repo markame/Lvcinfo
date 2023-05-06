@@ -118,30 +118,18 @@
                             <Entry Keyboard="Text" x:Name="nome_Animal"/>
 
                             <Label Text="Sexo:" FontSize="Body"/>
-                            <Grid Margin="5,5,5,25">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="0.6*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="1" />
-                                    <RowDefinition Height="20" />
-                                </Grid.RowDefinitions>
-                                <RadioButton x:Name="SexoM" Value="1" Grid.Column="1" Grid.Row="1"/>
-                                <Label VerticalOptions="Center" Grid.Row="1" FontSize="Body" Text="Macho"/>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton x:Name="SexoM" Value="1" />
+                                <Label   FontSize="Body" Text="Macho"/>
+                                <RadioButton x:Name="SexoF" Value="2"  />
+                                <Label   FontSize="Body" Text="Fêmea"/>
 
-                                <RadioButton x:Name="SexoF" Value="2" Grid.Column="3" Grid.Row="1"/>
-                                <Label VerticalOptions="Center" Grid.Row="1" Grid.Column="2" FontSize="Body" Text="Fêmea"/>
-                                
 
                                 <!-- 1 para Macho
                                  2 para Fêmea
                                -->
 
-                            </Grid>
-
-
-
+                            </StackLayout>
                             <Label Text="Idade:" FontSize="Body"/>
                             <Entry Keyboard="Text" x:Name="idade_Animal"/>
                             <Label Text="Raça:" FontSize="Body"/>
@@ -316,12 +304,12 @@
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding rapido}">
 
-                                        <Label  FontSize="Body" Text="Positivo" />
                                         <RadioButton x:Name="reagenteR"/>
-                                        <Label FontSize="Body" Text="Negativo" />
+                                        <Label  FontSize="Body" Text="Positivo" />
                                         <RadioButton x:Name="nreagenteR"/>
-                                        <Label  FontSize="Body" Text="Não realizado" />
+                                        <Label FontSize="Body" Text="Negativo" />
                                         <RadioButton x:Name="nrealizadoR"/>
+                                        <Label  FontSize="Body" Text="Não realizado" />
                                         <!--P = 1
                                     N = 0
                                     NR = 2-->
@@ -336,32 +324,15 @@
                                         <Label VerticalOptions="Center" FontAttributes="Bold" Text="Diagnóstico sorológico (ELISA):" FontSize="Body"/>
                                         <DatePicker x:Name="dataElisa"/>
                                     </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <RadioButton x:Name="Elisa_Positivo" Grid.Row="0"  />
+                                        <Label FontSize="Body"  Grid.Column="2" Text="Positivo"/>
+                                        <RadioButton x:Name="Elisa_Negativo" Grid.Column="3"  />
+                                        <Label FontSize="Body" Grid.Column="4"  Text="Negativo"/>
+                                        <RadioButton x:Name="Elisa_NaoRealizado" Grid.Row="2" />
+                                        <Label Grid.Row="2" Grid.Column="2"   FontSize="Body" Text="Não Realizado"/>
 
-
-                                    <Grid RadioButtonGroup.GroupName="{Binding elisa}" Margin="0,20,0,0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="120" />
-                                            <ColumnDefinition Width="20" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="30" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-
-
-                                        <Label FontSize="Body" Grid.Row="0" Text="Positivo"/>
-                                        <RadioButton x:Name="Elisa_Positivo"  Grid.Column="2"/>
-
-                                        <Label FontSize="Body" Grid.Column="3"  Text="Negativo"/>
-                                        <RadioButton x:Name="Elisa_Negativo"   Grid.Column="4"/>
-
-                                        <Label FontSize="Body" Grid.Row="2" Text="Indeterminado"/>
-                                        <RadioButton x:Name="Elisa_Indeterminado"  Grid.Column="2"  Grid.Row="2"/>
-
-                                        <Label Grid.Row="2" Grid.Column="3" FontSize="Body" Text="Não Realizado"/>
-                                        <RadioButton x:Name="Elisa_NaoRealizado"  Grid.Row="2" Grid.Column="4"/>
-
-                                    </Grid>
+                                    </StackLayout>
                                     <!--P = 1
                                     N = 0
                                     NR = 2
@@ -380,13 +351,13 @@
 
 
                                         <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding parasita}">
-
-                                            <Label FontSize="Body" VerticalOptions="Center" Text="Positivo" />
                                             <RadioButton x:Name="reagenteP"/>
-                                            <Label FontSize="Body" Text="Negativo" VerticalOptions="Center"/>
+                                            <Label FontSize="Body" VerticalOptions="Center" Text="Positivo" />
                                             <RadioButton x:Name="nreagenteP"/>
-                                            <Label FontSize="Body" Text="Não realizado" VerticalOptions="Center"/>
+                                            <Label FontSize="Body" Text="Negativo" VerticalOptions="Center"/>
                                             <RadioButton x:Name="nrealizadoP"/>
+                                            <Label FontSize="Body" Text="Não realizado" VerticalOptions="Center"/>
+
                                         </StackLayout>
                                     </StackLayout>
                                     <!--P = 1
@@ -420,16 +391,16 @@
                         <StackLayout>
                             <Label Text="Conclusao do caso:" FontSize="Body"/>
                             <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding resultado}">
-                                <Label FontSize="Body"  Text="Confirmado" />
-                                <RadioButton  CheckedChanged="confirmado_CheckedChanged" x:Name="confirmado" />
-                                <Label FontSize="Body" Text="Descartado" />
-                                <RadioButton CheckedChanged="descartado_CheckedChanged" x:Name="descartado"/>
 
+                                <RadioButton CheckedChanged="confirmado_CheckedChanged" x:Name="confirmado" />
+                                <Label FontSize="Body"    Text="Confirmado" />
+                                <RadioButton CheckedChanged="descartado_CheckedChanged" x:Name="descartado"/>
+                                <Label FontSize="Body" Text="Descartado" />
                             </StackLayout>
                             <Frame>
                                 <StackLayout>
 
-                                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding evo}">
+                                    <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="evo">
                                         <RadioButton x:Name="rb_Tratamento" IsEnabled="false"/>
                                         <Label x:Name="label_Tra" Text="Animal em tratamento" IsEnabled="false"/>
                                         <RadioButton x:Name="rb_Recolhido" IsEnabled="false"/>
@@ -437,11 +408,21 @@
                                         <RadioButton  x:Name="rb_NEutanasiado"  IsEnabled="false"/>
 
                                         <Label x:Name="label_Eu" Text="Não recolhido" IsEnabled="false"/>
+                                        <StackLayout Margin="0,10,0,0"  Orientation="Horizontal" RadioButtonGroup.GroupName="evo">
+                                            <RadioButton  IsEnabled="false" x:Name="rb_ObitoLvc"/>
+                                            <Label  x:Name="lvcobito" IsEnabled="false" Text="Óbito por LVC"/>
+
+                                            <RadioButton  IsEnabled="false" x:Name="rb_Obitooutros"/>
+                                            <Label x:Name="causa"  IsEnabled="false" Text="Óbito por outras causas"/>
+                                        </StackLayout>
+
 
                                         <!-- 1 em tratamento
                                             2 recolhido
                                             3 nao recolhido
-                                            4 descartado-->
+                                            4 descartado
+                                        5 obito or lvc
+                                        6 obito outras causas-->
 
 
                                     </StackLayout>
@@ -452,18 +433,7 @@
 
                                         
                                     </StackLayout>
-                                    <Label FontSize="Body" Text="Tipo de óbito do animal"/>
-                                    <Picker TextColor="Black" Title="Selecione" TitleColor="DarkGreen" x:Name="Obito_Animal">
-                                        <Picker.ItemsSource>
-                                            <x:Array  Type="{x:Type x:String}">
-
-                                                <x:String>Óbito por LVC</x:String>
-                                                <x:String>Óbito por outro Motivo</x:String>
-                                            
-
-                                            </x:Array>
-                                        </Picker.ItemsSource>
-                                    </Picker>
+                                 
 
                                 </StackLayout>
                             </Frame>

@@ -21,22 +21,21 @@
                             <Label FontSize="20" HorizontalTextAlignment="Start" Text="Contato"/>
                             <Label Text="Nossa equipe está totalmente pronta para atender suas dúvidas! "/>
                             <Label Text="Você pode enviar um email com duvidas, problemas e sugestões sobre o App iremos responder o mais rápido possivel!"/>
+                            <Label FontSize="Micro" Text="*Usaremos seu próprio aplicativo de e-mail para isso!"/>
                             <Frame>
                                 <StackLayout VerticalOptions="Start">
                                     <StackLayout>
                                         <Label Text=" Seu nome:"/>
                                         <Entry Keyboard="Email" WidthRequest="100" x:Name="nome"/>
-                                        <Label Text=" Seu e-mail:"/>
-                                        <Entry Keyboard="Email" WidthRequest="100" x:Name="email"/>
                                         <Label Text="Digite aqui suas duvidas, problemas ou sugestões sobre o App:"/>
                                         <Frame BorderColor="Black">
-                                        <Editor Keyboard="Plain" AutoSize="TextChanges"/>
+                                        <Editor x:Name="mensagem" Keyboard="Plain" AutoSize="TextChanges"/>
                                             
                                         </Frame>
 
                                     </StackLayout>
 
-                                    <Button Text="Enviar"/>
+                                    <Button Clicked="Envia_Email" Text="Enviar"/>
                                 </StackLayout>
                                 
                             </Frame>

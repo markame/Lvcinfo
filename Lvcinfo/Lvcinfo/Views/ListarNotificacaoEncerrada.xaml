@@ -26,9 +26,9 @@
                         <DataTemplate>
                             <ViewCell>
                                 
-                                <StackLayout Spacing="0" Orientation="Vertical">
-                                    <Frame CornerRadius="5" BorderColor="Black">
-                                        <StackLayout Orientation="Vertical">
+                                <StackLayout Spacing="10" Orientation="Vertical">
+                                    <Frame Padding="2" Margin="0,5,0,5"  CornerRadius="5" BorderColor="Black">
+                                        <StackLayout Spacing="10" Orientation="Vertical">
                                             <Label  Text="Nome do Tutor:" FontSize="Body" FontAttributes="Bold"/>
                                             <Label Text="{Binding Nome_Proprietario}" VerticalOptions="Center"/>
                                             <Label Text="Nome do Animal:" FontSize="Body" FontAttributes="Bold"/>

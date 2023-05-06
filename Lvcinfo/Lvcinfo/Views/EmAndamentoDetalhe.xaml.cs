@@ -209,10 +209,7 @@ namespace Lvcinfo.Views
             {
                 Elisa_NaoRealizado.IsChecked = true;
             }
-            if (registro.Exame_Elisa ==3)
-            {
-                Elisa_Indeterminado.IsChecked = true;
-            }
+          
             if (registro.Exame_Elisa == 0)
             {
                 Elisa_Negativo.IsChecked = true;
@@ -268,9 +265,30 @@ namespace Lvcinfo.Views
 
             }
 
-             
+            if (registro.Evolucao_Caso == 5)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
 
-         
+            }
+            if (registro.Evolucao_Caso == 6)
+            {
+                confirmado.IsChecked = true;
+                rb_NEutanasiado.IsChecked = true;
+                pic_Eutanasia.IsVisible = true;
+                rb_ObitoLvc.IsEnabled = true;
+                lvcobito.IsEnabled = true;
+                rb_Obitooutros.IsEnabled = true;
+                causa.IsEnabled = true;
+
+            }
+
+
 
 
         }
@@ -285,6 +303,10 @@ namespace Lvcinfo.Views
             label_Enco.IsEnabled = true;
             label_Data.IsEnabled = true;
             label_Eu.IsEnabled = true;
+            rb_ObitoLvc.IsEnabled = true;
+            lvcobito.IsEnabled = true;
+            rb_Obitooutros.IsEnabled = true;
+            causa.IsEnabled = true;
         }
 
 
@@ -315,11 +337,7 @@ namespace Lvcinfo.Views
             {
                 eelisa = 2;
             }
-            if (Elisa_Indeterminado.IsChecked)
-            {
-                eelisa= 3;
-            }
-
+         
             if (reagenteP.IsChecked)
             {
                 eparasita = 1;
@@ -345,6 +363,14 @@ namespace Lvcinfo.Views
                 evo =3;
                 dataeutanasia = pic_Eutanasia.Date.ToShortDateString();
 
+            }
+            if (rb_ObitoLvc.IsChecked)
+            {
+                evo = 5;
+            }
+            if (rb_Obitooutros.IsChecked)
+            {
+                evo = 6;
             }
         }
 
@@ -479,7 +505,7 @@ namespace Lvcinfo.Views
 
                 }
 
-                if ((evo == 1)|| (evo ==2)||(evo == 3)||(evo==4))
+                if ((evo == 1)|| (evo ==2)||(evo == 3)||(evo==4)||(evo==5)||(evo==6))
                 {
                     status ="Finalizado";
                 }
@@ -504,17 +530,22 @@ namespace Lvcinfo.Views
 
         }
 
+        
+
         private void descartado_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            label_Tra.IsEnabled = false;
             rb_Tratamento.IsEnabled = false;
-            rb_Tratamento.IsEnabled = false;
-            label_Enco.IsEnabled = false;
-            rb_Recolhido.IsEnabled =false;
-            label_Eu.IsEnabled = false;
+            rb_Recolhido.IsEnabled = false;
             rb_NEutanasiado.IsEnabled = false;
-            label_Data.IsEnabled  = false;
-            pic_Eutanasia.IsEnabled  = false;
+            pic_Eutanasia.IsEnabled = false;
+            label_Tra.IsEnabled = false;
+            label_Enco.IsEnabled = false;
+            label_Data.IsEnabled = false;
+            label_Eu.IsEnabled = false;
+            rb_ObitoLvc.IsEnabled = false;
+            lvcobito.IsEnabled = false;
+            rb_Obitooutros.IsEnabled = false;
+            causa.IsEnabled = false;
             evo = 4;
 
         }
