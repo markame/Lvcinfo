@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
              x:Class="Lvcinfo.Views.NovaNotificacao"
-             Title="Nova Notificação"
+             Title="Nova notificação"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#199B2D</Color>
+            <Color x:Key="Accent">#0b3793</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -39,7 +39,7 @@
                                 <Label Text="UF:" VerticalOptions="Center" FontSize="Body" />
                                 <Picker x:Name="uf"
         Title="Selecione"
-        TitleColor="Green">
+        TitleColor="#0b3793">
                                     
                                     
                                     <Picker.ItemsSource>
@@ -121,7 +121,7 @@
                         
                 </Frame>
                     <!--box coordenada-->
-                    <Label Text="Coordenada da Residencia" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="Localização da residência (GPS)" FontSize="Medium" FontAttributes="Bold"/>
                     <Frame CornerRadius="10" BorderColor="Black">
                         <StackLayout>
 
@@ -350,7 +350,7 @@
 
                                 </StackLayout>
                             </Frame>
-                            <Frame>
+                            <Frame IsVisible="false">
                             <StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label VerticalOptions="Center" FontAttributes="Bold" Text="Diagnóstico parasitológico:" FontSize="Body"/>
@@ -397,9 +397,10 @@
                     </Frame>
                     
                     <!--começo do box conclusao-->
+                    <Label FontAttributes="Bold" Text="Conclusão do caso:" FontSize="Body"/>
                     <Frame CornerRadius="10" BorderColor="Black">
                         <StackLayout>
-                        <Label Text="Conclusao do caso:" FontSize="Body"/>
+                        
                         <StackLayout Orientation="Horizontal" RadioButtonGroup.GroupName="{Binding resultado}">
                                 
                                 <RadioButton x:Name="confirmado" CheckedChanged="ConfirmadoCheck"/>

@@ -4,8 +4,8 @@
              x:Class="Lvcinfo.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#006400</Color>
-            <Color x:Key="BackgoundLight">#2BF04B</Color>
+            <Color x:Key="Primary">#0b3793</Color>
+            <Color x:Key="BackgoundLight">#5F7CB9</Color>
             <Color x:Key="TextLight"></Color>
 
 

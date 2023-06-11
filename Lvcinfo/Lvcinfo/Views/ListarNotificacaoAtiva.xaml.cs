@@ -50,15 +50,26 @@ namespace Lvcinfo.Views
                  
                     var list = JsonConvert.DeserializeObject<List<Registro>>(responseContent);
                     ObservableCollection<Registro> listRegisto = new ObservableCollection<Registro>(list);
-                 
-                    registro_Inves.ItemsSource = listRegisto;
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    if (listRegisto.Count != 0)
+                    {
+                        registro_Inves.ItemsSource = listRegisto;
+                        await Application.Current.MainPage.Navigation.PopModalAsync();
+
+                    }
+                    else
+                    {
+                        DisplayAlert("Erro", "Você não possui investigações ativas", "cancelar");
+                        await Application.Current.MainPage.Navigation.PopModalAsync();
+                    }
+
+                    
+                   
 
 
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Erro", "Você não possui investigações ativas", "cancel");
+                    DisplayAlert("Erro", "Erro ao entrar em contato com servidor", "cancelar");
                 }
             }
 

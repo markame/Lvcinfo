@@ -5,14 +5,14 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
 
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="#035A10"
+            BarBackgroundColor="#0b3793"
             Title="Sobre a LVC"
     BarTextColor="White"
     android:TabbedPage.BarItemColor="#66FFFFFF"
-    android:TabbedPage.BarSelectedItemColor="#199B2D">
+    android:TabbedPage.BarSelectedItemColor="#0b3793">
     <TabbedPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#199B2D</Color>
+            <Color x:Key="Accent">#0b3793</Color>
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>

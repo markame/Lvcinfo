@@ -33,7 +33,8 @@ namespace Lvcinfo
             }
             catch(Exception x)
             {
-                DisplayAlert("Erro de login","Aparentemente você ainda não  tem acesso","ok");
+                _=DisplayAlert("Erro de login","Aparentemente você ainda não  tem acesso","ok");
+                _=Application.Current.MainPage.Navigation.PopModalAsync();
             }
           
         }

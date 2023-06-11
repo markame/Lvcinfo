@@ -5,10 +5,10 @@
           Title="Pagina Inicial"
            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="#035A10"
+            BarBackgroundColor="#0b3793"
     BarTextColor="White"
     android:TabbedPage.BarItemColor="#66FFFFFF"
-    android:TabbedPage.BarSelectedItemColor="#199B2D">
+    android:TabbedPage.BarSelectedItemColor="#0b3793">
     <TabbedPage.Children>
         <!-- Aba de Investigações -->
         <ContentPage Title="Menu principal">

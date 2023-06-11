@@ -5,7 +5,7 @@
              Title="Fale Conosco">
 
     <ContentPage.Resources>
-        <Color x:Key="Accent">#199B2D</Color>
+        <Color x:Key="Accent">#0b3793</Color>
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>

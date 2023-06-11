@@ -7,7 +7,7 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#199B2D</Color>
+            <Color x:Key="Accent">#0b3793</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
