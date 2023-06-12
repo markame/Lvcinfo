@@ -42,8 +42,8 @@
                             </Grid.RowDefinitions>
                             <StackLayout Orientation="Vertical" Grid.Row="0">
                                 <Button  Text="Nova Notificação"  Command="{Binding novaNotificacaoCommand}" />
-                                <Button Text="Investigações em Andamento" Command="{Binding listarRegistroCommand}" />
-                                <Button Text="Investigações Finalizadas" Command="{Binding listarRegistroEncerradoCommand}" />
+                                <Button Text="Notificações em Andamento" Command="{Binding listarRegistroCommand}" />
+                                <Button Text="Notificações Concluídas" Command="{Binding listarRegistroEncerradoCommand}" />
                             </StackLayout>
                             <StackLayout Grid.Row="1">
                                 
@@ -71,7 +71,7 @@
                             <Label.FormattedText >
                                 <FormattedString>
                                     <FormattedString.Spans >
-                                        <Span  Text="Por meio dessa aba, é possível entrar em contato com a equipe de suporte técnico para sanar dúvidas, reportar erros ou problemas, solicitar melhorias ou sugerir novas funcionalidades. Além disso, a aba de suporte também fornece informações úteis sobre o combate à Leishmaniose Visceral Canina, tais como medidas de prevenção, tratamento e controle da doença."/>
+                                        <Span  Text="Por meio desta aba, é possível entrar em contato com a equipe de suporte técnico para sanar dúvidas, reportar erros ou problemas, solicitar melhorias ou sugerir novas funcionalidades. Além disso, esta aba também fornece informações úteis sobre a Leishmaniose Visceral Canina, tais como vetor transmissor, modo de transmissão, sintomas, tratamento do cão, medidas de prevenção e controle da doença."/>
                                     </FormattedString.Spans>
                                 </FormattedString>
                             </Label.FormattedText>

@@ -20,7 +20,7 @@ namespace Lvcinfo.Views
             InitializeComponent();
             string nomeUsuario = Preferences.Get("_Name", "");
             
-            Bvinada.Text = "Olá "+nomeUsuario+" utilize essa aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu dispositivo móvel para futuras checagens.";
+            Bvinada.Text = "Olá, "+nomeUsuario+"! Utilize esta aba para realizar cadastros dos casos suspeitos de Leishmaniose Visceral Canina. É importante registar fotos, além da localização do animal, utilizando GPS do seu dispositivo móvel para futuras consultas.";
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             var isFirstRun = Preferences.Get("isFirstRun", false);
             if (!isFirstRun)

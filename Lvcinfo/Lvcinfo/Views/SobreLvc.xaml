@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>
-        <ContentPage Title="O que é LVC?">
+        <ContentPage Title="A doença">
             <StackLayout  Orientation="Vertical" >
                 <StackLayout Spacing="3" Padding="0">
                     <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill">
@@ -61,13 +61,11 @@ LineBreakMode="WordWrap" />
                 <StackLayout Spacing="3" Padding="10">
                     <Frame>
                         <StackLayout>
-                                <Label HorizontalOptions="Center" FontSize="Large" Text="Fique atento"/>
+                                <Label HorizontalOptions="Center" FontSize="Large" Text="Fique atento!"/>
                                 <Image Source="Ilustrativo2" Margin="0,0,10,0"/>
-                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Os sintomas da LVC podem variar dependendo do estágio da doença. Nos estágios iniciais, o animal pode apresentar sintomas vagos como perda de peso, falta de apetite, apatia e fraqueza. Além disso, o cão infectado pode desenvolver feridas na pele que não cicatrizam e, em alguns casos, podem sangrar. A presença de febre também pode ser um sinal da doença.
+                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Os sintomas da LVC podem variar dependendo do estágio da doença. Nos estágios iniciais, o animal pode apresentar sintomas genéricos como perda de peso, falta de apetite, apatia e fraqueza. Além disso, o cão infectado pode desenvolver feridas na pele que não cicatrizam e, em alguns casos, podem sangrar. A presença de febre também pode ser um sinal da doença.
 
-Conforme a doença progride, os sintomas da LVC em cães podem piorar. O animal pode apresentar vômitos, diarreia, aumento do volume abdominal e inchaço nas pernas. Além disso, a LVC também pode levar à anemia, o que pode causar fraqueza e falta de ar.
-
-Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para respirar, mudanças no comportamento e convulsões. À medida que a doença avança, o sistema imunológico do cão é comprometido, o que pode deixá-lo suscetível a outras doenças e infecções."/>
+Conforme a doença progride, os sintomas da LVC em cães podem piorar. O animal pode apresentar vômitos, diarreia, aumento do volume abdominal, anemia e sangramento nasal. O sistema imunológico do cão também é comprometido, o que pode deixá-lo suscetível a outras doenças e infecções."/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
@@ -95,8 +93,8 @@ Outros sintomas da LVC em cães incluem sangramento nasal, dificuldade para resp
                         <StackLayout>
                             <Label HorizontalOptions="Center" FontSize="Large" Text="Medicamentos administrados"/>
                             <Image Source="Ilustrativo3" Margin="0,0,10,0"/>
-                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Atualmente, existe apenas um medicamento registrado pelo Ministério de Agricultura Pecuária e Abastecimento (MAPA) para tratamento da LVC e que está sendo comercializado no Brasil, o Milteforan, cujo princípio ativo é a miltefosina. 
-Ressalta-se que o tratamento dos cães não se configura como uma medida de saúde pública para controle da doença e, portanto, trata-se única e exclusivamente de uma escolha do tutor do animal, de caráter individual. Dessa forma, é imprescindível que se cumpra o protocolo de tratamento descrito na rotulagem do produto, respeitando-se a necessidade de reavaliação clínica, laboratorial e parasitológica periódica pelo médico veterinário, a necessidade de realização de novo ciclo de tratamento, quando indicado, e a recomendação de utilização de produtos para repelência do flebotomíneo." LineBreakMode="WordWrap" />
+                                <Label FontSize="Body" HorizontalTextAlignment="Center" Margin="20,0,20,0" Text="Atualmente, existe apenas um medicamento registrado pelo Ministério da Agricultura, Pecuária e Abastecimento (MAPA) para tratamento da LVC e que está sendo comercializado no Brasil, o Milteforan, cujo princípio ativo é a miltefosina. 
+Ressalta-se que o tratamento dos cães não se configura como uma medida de saúde pública para controle da doença e, portanto, trata-se única e exclusivamente de uma escolha do tutor do animal, de caráter individual. Dessa forma, é imprescindível que se cumpra o protocolo de tratamento descrito na rotulagem do produto, respeitando-se a necessidade de reavaliação clínica, laboratorial e parasitológica periódica pelo médico veterinário, a necessidade de realização de novo ciclo de tratamento, quando indicado, e a recomendação de utilização de produtos para repelência do flebotomíneo, como a coleira impregnada com deltametrina a 4%, atualmente incorporada nas ações do Programa de Controle da Leishmaniose Visceral. Além disso, outros medicamentos são utilizados como coadjuvantes no tratamento da LVC, como Alopurinol, Marbofloxacina, Domperidona e Antimoniais pentavalentes." LineBreakMode="WordWrap" />
                         </StackLayout>
                     </Frame>
                 </StackLayout>
@@ -121,14 +119,15 @@ Ressalta-se que o tratamento dos cães não se configura como uma medida de saú
                 <StackLayout Spacing="2" Padding="10">
                     <Frame>
                         <StackLayout>
-                            <Label FontSize="Body"  Text="A prevenção é a melhor forma de evitar a Leishmaniose Visceral Canina (LVC). Para evitar que seu cão seja infectado, é importante adotar algumas medidas simples e eficazes:" LineBreakMode="WordWrap" />
+                                <Image Source="Ilustrativo4" Margin="0,0,10,0"/>
+                                <Label FontSize="Body"  Text="A prevenção é a melhor forma de evitar a Leishmaniose Visceral Canina (LVC). Para evitar que seu cão seja infectado é importante adotar algumas medidas simples e eficazes:" LineBreakMode="WordWrap" />
                                 <Label FontSize="Body"  Text="1. Manejo ambiental, por meio da limpeza de quintais, terrenos e praças públicas, a fim de alterar as condições do meio que propiciem o estabelecimento de criadouros de formas imaturas do vetor."/>
                                 <Label FontSize="Body"  Text="2. Limpeza periódica de abrigos de animais, como canis, galinheiros, chiqueiros e currais."/>
                                 <Label FontSize="Body"  Text="3. Evitar deixar solo úmido e matéria orgânica exposta."/>
                                 <Label FontSize="Body"  Text="4. Realizar poda periódica de árvores, uma vez que os flebotomíneos costumam viver em locais sombreados."/>
-                                <Label FontSize="Body"  Text="5. Uso de coleiras repelentes impregnadas com deltametrina a 4% em cães, principalmente em áreas com focos da doença."/>
-                                <Label FontSize="Body"  Text="6. Uso de telas em canis infividuais ou coletivos."/>
-                                <Label FontSize="Body"  Text="7. Informar à Unidade de Vigilância de Zoonoses (UVZ) quando houver suspeita de cão com a doença."/>
+                                <Label FontSize="Body"  Text="5. Uso de coleiras repelentes impregnadas com deltametrina a 4% em cães, principalmente em áreas com transmissão da doença."/>
+                                <Label FontSize="Body"  Text="6. Uso de telas em canis individuais ou coletivos."/>
+                                <Label FontSize="Body"  Text="7. Informar à Unidade de Vigilância de Zoonoses (UVZ) do município quando houver suspeita de cão com a doença."/>
 
                             </StackLayout>
                     </Frame>
